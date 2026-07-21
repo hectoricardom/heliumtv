@@ -43,6 +43,14 @@
       "src/lib/auth.ts"
     ]
   },
+  "_appversion-C62tv9nw.js": {
+    "file": "assets/appversion-C62tv9nw.js",
+    "name": "appversion"
+  },
+  "_browser-CjSdxGTc.js": {
+    "file": "assets/browser-CjSdxGTc.js",
+    "name": "browser"
+  },
   "_preload-helper-CM3UJVvY.js": {
     "file": "assets/preload-helper-CM3UJVvY.js",
     "name": "preload-helper"
@@ -163,7 +171,7 @@
     ]
   },
   "src/routes/search.tsx?pick=default&pick=$css": {
-    "file": "assets/search-DhhRrfE2.js",
+    "file": "assets/search-soUzrq6_.js",
     "name": "search",
     "src": "src/routes/search.tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -209,15 +217,28 @@
     ]
   },
   "src/routes/tv.tsx?pick=default&pick=$css": {
-    "file": "assets/tv-7pZSA4Nz.js",
+    "file": "assets/tv-Cv2T59-u.js",
     "name": "tv",
     "src": "src/routes/tv.tsx?pick=default&pick=$css",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_web-C1rhI-gZ.js",
+      "_browser-CjSdxGTc.js",
       "_session-Bh7Sqjdq.js",
       "_routing-C79xCL_B.js"
+    ]
+  },
+  "src/routes/update.tsx?pick=default&pick=$css": {
+    "file": "assets/update-DygZznL7.js",
+    "name": "update",
+    "src": "src/routes/update.tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_web-C1rhI-gZ.js",
+      "_browser-CjSdxGTc.js",
+      "_appversion-C62tv9nw.js"
     ]
   },
   "src/routes/watch/[id].tsx?pick=default&pick=$css": {
@@ -238,7 +259,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-g3VdNY-c.js",
+    "file": "assets/client-DiKG4G_t.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
@@ -246,6 +267,7 @@
       "_web-C1rhI-gZ.js",
       "_preload-helper-CM3UJVvY.js",
       "src/lib/auth.ts",
+      "_appversion-C62tv9nw.js",
       "_routing-C79xCL_B.js",
       "_session-Bh7Sqjdq.js"
     ],
@@ -257,6 +279,7 @@
       "src/routes/login.tsx?pick=default&pick=$css",
       "src/routes/search.tsx?pick=default&pick=$css",
       "src/routes/tv.tsx?pick=default&pick=$css",
+      "src/routes/update.tsx?pick=default&pick=$css",
       "src/routes/category/[key].tsx?pick=default&pick=$css",
       "src/routes/series/[id].tsx?pick=default&pick=$css",
       "src/routes/title/[id].tsx?pick=default&pick=$css",

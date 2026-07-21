@@ -597,7 +597,7 @@ const defuFn = createDefu((object, key, currentValue) => {
   }
 });
 
-function o(n){throw new Error(`${n} is not implemented yet!`)}let i$1 = class i extends EventEmitter{__unenv__={};readableEncoding=null;readableEnded=true;readableFlowing=false;readableHighWaterMark=0;readableLength=0;readableObjectMode=false;readableAborted=false;readableDidRead=false;closed=false;errored=null;readable=false;destroyed=false;static from(e,t){return new i(t)}constructor(e){super();}_read(e){}read(e){}setEncoding(e){return this}pause(){return this}resume(){return this}isPaused(){return  true}unpipe(e){return this}unshift(e,t){}wrap(e){return this}push(e,t){return  false}_destroy(e,t){this.removeAllListeners();}destroy(e){return this.destroyed=true,this._destroy(e),this}pipe(e,t){return {}}compose(e,t){throw new Error("Method not implemented.")}[Symbol.asyncDispose](){return this.destroy(),Promise.resolve()}async*[Symbol.asyncIterator](){throw o("Readable.asyncIterator")}iterator(e){throw o("Readable.iterator")}map(e,t){throw o("Readable.map")}filter(e,t){throw o("Readable.filter")}forEach(e,t){throw o("Readable.forEach")}reduce(e,t,r){throw o("Readable.reduce")}find(e,t){throw o("Readable.find")}findIndex(e,t){throw o("Readable.findIndex")}some(e,t){throw o("Readable.some")}toArray(e){throw o("Readable.toArray")}every(e,t){throw o("Readable.every")}flatMap(e,t){throw o("Readable.flatMap")}drop(e,t){throw o("Readable.drop")}take(e,t){throw o("Readable.take")}asIndexedPairs(e){throw o("Readable.asIndexedPairs")}};let l$1 = class l extends EventEmitter{__unenv__={};writable=true;writableEnded=false;writableFinished=false;writableHighWaterMark=0;writableLength=0;writableObjectMode=false;writableCorked=0;closed=false;errored=null;writableNeedDrain=false;writableAborted=false;destroyed=false;_data;_encoding="utf8";constructor(e){super();}pipe(e,t){return {}}_write(e,t,r){if(this.writableEnded){r&&r();return}if(this._data===void 0)this._data=e;else {const s=typeof this._data=="string"?Buffer$1.from(this._data,this._encoding||t||"utf8"):this._data,a=typeof e=="string"?Buffer$1.from(e,t||this._encoding||"utf8"):e;this._data=Buffer$1.concat([s,a]);}this._encoding=t,r&&r();}_writev(e,t){}_destroy(e,t){}_final(e){}write(e,t,r){const s=typeof t=="string"?this._encoding:"utf8",a=typeof t=="function"?t:typeof r=="function"?r:void 0;return this._write(e,s,a),true}setDefaultEncoding(e){return this}end(e,t,r){const s=typeof e=="function"?e:typeof t=="function"?t:typeof r=="function"?r:void 0;if(this.writableEnded)return s&&s(),this;const a=e===s?void 0:e;if(a){const u=t===s?void 0:t;this.write(a,u,s);}return this.writableEnded=true,this.writableFinished=true,this.emit("close"),this.emit("finish"),this}cork(){}uncork(){}destroy(e){return this.destroyed=true,delete this._data,this.removeAllListeners(),this}compose(e,t){throw new Error("Method not implemented.")}[Symbol.asyncDispose](){return Promise.resolve()}};const c=class{allowHalfOpen=true;_destroy;constructor(e=new i$1,t=new l$1){Object.assign(this,e),Object.assign(this,t),this._destroy=m(e._destroy,t._destroy);}};function _$1(){return Object.assign(c.prototype,i$1.prototype),Object.assign(c.prototype,l$1.prototype),c}function m(...n){return function(...e){for(const t of n)t(...e);}}const g$1=_$1();class A extends g$1{__unenv__={};bufferSize=0;bytesRead=0;bytesWritten=0;connecting=false;destroyed=false;pending=false;localAddress="";localPort=0;remoteAddress="";remoteFamily="";remotePort=0;autoSelectFamilyAttemptedAddresses=[];readyState="readOnly";constructor(e){super();}write(e,t,r){return  false}connect(e,t,r){return this}end(e,t,r){return this}setEncoding(e){return this}pause(){return this}resume(){return this}setTimeout(e,t){return this}setNoDelay(e){return this}setKeepAlive(e,t){return this}address(){return {}}unref(){return this}ref(){return this}destroySoon(){this.destroy();}resetAndDestroy(){const e=new Error("ERR_SOCKET_CLOSED");return e.code="ERR_SOCKET_CLOSED",this.destroy(e),this}}class y extends i$1{aborted=false;httpVersion="1.1";httpVersionMajor=1;httpVersionMinor=1;complete=true;connection;socket;headers={};trailers={};method="GET";url="/";statusCode=200;statusMessage="";closed=false;errored=null;readable=false;constructor(e){super(),this.socket=this.connection=e||new A;}get rawHeaders(){const e=this.headers,t=[];for(const r in e)if(Array.isArray(e[r]))for(const s of e[r])t.push(r,s);else t.push(r,e[r]);return t}get rawTrailers(){return []}setTimeout(e,t){return this}get headersDistinct(){return p(this.headers)}get trailersDistinct(){return p(this.trailers)}}function p(n){const e={};for(const[t,r]of Object.entries(n))t&&(e[t]=(Array.isArray(r)?r:[r]).filter(Boolean));return e}class w extends l$1{statusCode=200;statusMessage="";upgrading=false;chunkedEncoding=false;shouldKeepAlive=false;useChunkedEncodingByDefault=false;sendDate=false;finished=false;headersSent=false;strictContentLength=false;connection=null;socket=null;req;_headers={};constructor(e){super(),this.req=e;}assignSocket(e){e._httpMessage=this,this.socket=e,this.connection=e,this.emit("socket",e),this._flush();}_flush(){this.flushHeaders();}detachSocket(e){}writeContinue(e){}writeHead(e,t,r){e&&(this.statusCode=e),typeof t=="string"&&(this.statusMessage=t,t=void 0);const s=r||t;if(s&&!Array.isArray(s))for(const a in s)this.setHeader(a,s[a]);return this.headersSent=true,this}writeProcessing(){}setTimeout(e,t){return this}appendHeader(e,t){e=e.toLowerCase();const r=this._headers[e],s=[...Array.isArray(r)?r:[r],...Array.isArray(t)?t:[t]].filter(Boolean);return this._headers[e]=s.length>1?s:s[0],this}setHeader(e,t){return this._headers[e.toLowerCase()]=t,this}setHeaders(e){for(const[t,r]of Object.entries(e))this.setHeader(t,r);return this}getHeader(e){return this._headers[e.toLowerCase()]}getHeaders(){return this._headers}getHeaderNames(){return Object.keys(this._headers)}hasHeader(e){return e.toLowerCase()in this._headers}removeHeader(e){delete this._headers[e.toLowerCase()];}addTrailers(e){}flushHeaders(){}writeEarlyHints(e,t){typeof t=="function"&&t();}}const E$1=(()=>{const n=function(){};return n.prototype=Object.create(null),n})();function R$1(n={}){const e=new E$1,t=Array.isArray(n)||H$1(n)?n:Object.entries(n);for(const[r,s]of t)if(s){if(e[r]===void 0){e[r]=s;continue}e[r]=[...Array.isArray(e[r])?e[r]:[e[r]],...Array.isArray(s)?s:[s]];}return e}function H$1(n){return typeof n?.entries=="function"}function v$1(n={}){if(n instanceof Headers)return n;const e=new Headers;for(const[t,r]of Object.entries(n))if(r!==void 0){if(Array.isArray(r)){for(const s of r)e.append(t,String(s));continue}e.set(t,String(r));}return e}const S$2=new Set([101,204,205,304]);async function b$2(n,e){const t=new y,r=new w(t);t.url=e.url?.toString()||"/";let s;if(!t.url.startsWith("/")){const d=new URL(t.url);s=d.host,t.url=d.pathname+d.search+d.hash;}t.method=e.method||"GET",t.headers=R$1(e.headers||{}),t.headers.host||(t.headers.host=e.host||s||"localhost"),t.connection.encrypted=t.connection.encrypted||e.protocol==="https",t.body=e.body||null,t.__unenv__=e.context,await n(t,r);let a=r._data;(S$2.has(r.statusCode)||t.method.toUpperCase()==="HEAD")&&(a=null,delete r._headers["content-length"]);const u={status:r.statusCode,statusText:r.statusMessage,headers:r._headers,body:a};return t.destroy(),r.destroy(),u}async function C$1(n,e,t={}){try{const r=await b$2(n,{url:e,...t});return new Response(r.body,{status:r.status,statusText:r.statusText,headers:v$1(r.headers)})}catch(r){return new Response(r.toString(),{status:Number.parseInt(r.statusCode||r.code)||500,statusText:r.statusText})}}
+function o(n){throw new Error(`${n} is not implemented yet!`)}let i$1 = class i extends EventEmitter{__unenv__={};readableEncoding=null;readableEnded=true;readableFlowing=false;readableHighWaterMark=0;readableLength=0;readableObjectMode=false;readableAborted=false;readableDidRead=false;closed=false;errored=null;readable=false;destroyed=false;static from(e,t){return new i(t)}constructor(e){super();}_read(e){}read(e){}setEncoding(e){return this}pause(){return this}resume(){return this}isPaused(){return  true}unpipe(e){return this}unshift(e,t){}wrap(e){return this}push(e,t){return  false}_destroy(e,t){this.removeAllListeners();}destroy(e){return this.destroyed=true,this._destroy(e),this}pipe(e,t){return {}}compose(e,t){throw new Error("Method not implemented.")}[Symbol.asyncDispose](){return this.destroy(),Promise.resolve()}async*[Symbol.asyncIterator](){throw o("Readable.asyncIterator")}iterator(e){throw o("Readable.iterator")}map(e,t){throw o("Readable.map")}filter(e,t){throw o("Readable.filter")}forEach(e,t){throw o("Readable.forEach")}reduce(e,t,r){throw o("Readable.reduce")}find(e,t){throw o("Readable.find")}findIndex(e,t){throw o("Readable.findIndex")}some(e,t){throw o("Readable.some")}toArray(e){throw o("Readable.toArray")}every(e,t){throw o("Readable.every")}flatMap(e,t){throw o("Readable.flatMap")}drop(e,t){throw o("Readable.drop")}take(e,t){throw o("Readable.take")}asIndexedPairs(e){throw o("Readable.asIndexedPairs")}};let l$1 = class l extends EventEmitter{__unenv__={};writable=true;writableEnded=false;writableFinished=false;writableHighWaterMark=0;writableLength=0;writableObjectMode=false;writableCorked=0;closed=false;errored=null;writableNeedDrain=false;writableAborted=false;destroyed=false;_data;_encoding="utf8";constructor(e){super();}pipe(e,t){return {}}_write(e,t,r){if(this.writableEnded){r&&r();return}if(this._data===void 0)this._data=e;else {const s=typeof this._data=="string"?Buffer$1.from(this._data,this._encoding||t||"utf8"):this._data,a=typeof e=="string"?Buffer$1.from(e,t||this._encoding||"utf8"):e;this._data=Buffer$1.concat([s,a]);}this._encoding=t,r&&r();}_writev(e,t){}_destroy(e,t){}_final(e){}write(e,t,r){const s=typeof t=="string"?this._encoding:"utf8",a=typeof t=="function"?t:typeof r=="function"?r:void 0;return this._write(e,s,a),true}setDefaultEncoding(e){return this}end(e,t,r){const s=typeof e=="function"?e:typeof t=="function"?t:typeof r=="function"?r:void 0;if(this.writableEnded)return s&&s(),this;const a=e===s?void 0:e;if(a){const u=t===s?void 0:t;this.write(a,u,s);}return this.writableEnded=true,this.writableFinished=true,this.emit("close"),this.emit("finish"),this}cork(){}uncork(){}destroy(e){return this.destroyed=true,delete this._data,this.removeAllListeners(),this}compose(e,t){throw new Error("Method not implemented.")}[Symbol.asyncDispose](){return Promise.resolve()}};const c=class{allowHalfOpen=true;_destroy;constructor(e=new i$1,t=new l$1){Object.assign(this,e),Object.assign(this,t),this._destroy=m(e._destroy,t._destroy);}};function _$1(){return Object.assign(c.prototype,i$1.prototype),Object.assign(c.prototype,l$1.prototype),c}function m(...n){return function(...e){for(const t of n)t(...e);}}const g$1=_$1();class A extends g$1{__unenv__={};bufferSize=0;bytesRead=0;bytesWritten=0;connecting=false;destroyed=false;pending=false;localAddress="";localPort=0;remoteAddress="";remoteFamily="";remotePort=0;autoSelectFamilyAttemptedAddresses=[];readyState="readOnly";constructor(e){super();}write(e,t,r){return  false}connect(e,t,r){return this}end(e,t,r){return this}setEncoding(e){return this}pause(){return this}resume(){return this}setTimeout(e,t){return this}setNoDelay(e){return this}setKeepAlive(e,t){return this}address(){return {}}unref(){return this}ref(){return this}destroySoon(){this.destroy();}resetAndDestroy(){const e=new Error("ERR_SOCKET_CLOSED");return e.code="ERR_SOCKET_CLOSED",this.destroy(e),this}}class y extends i$1{aborted=false;httpVersion="1.1";httpVersionMajor=1;httpVersionMinor=1;complete=true;connection;socket;headers={};trailers={};method="GET";url="/";statusCode=200;statusMessage="";closed=false;errored=null;readable=false;constructor(e){super(),this.socket=this.connection=e||new A;}get rawHeaders(){const e=this.headers,t=[];for(const r in e)if(Array.isArray(e[r]))for(const s of e[r])t.push(r,s);else t.push(r,e[r]);return t}get rawTrailers(){return []}setTimeout(e,t){return this}get headersDistinct(){return p(this.headers)}get trailersDistinct(){return p(this.trailers)}}function p(n){const e={};for(const[t,r]of Object.entries(n))t&&(e[t]=(Array.isArray(r)?r:[r]).filter(Boolean));return e}let w$1 = class w extends l$1{statusCode=200;statusMessage="";upgrading=false;chunkedEncoding=false;shouldKeepAlive=false;useChunkedEncodingByDefault=false;sendDate=false;finished=false;headersSent=false;strictContentLength=false;connection=null;socket=null;req;_headers={};constructor(e){super(),this.req=e;}assignSocket(e){e._httpMessage=this,this.socket=e,this.connection=e,this.emit("socket",e),this._flush();}_flush(){this.flushHeaders();}detachSocket(e){}writeContinue(e){}writeHead(e,t,r){e&&(this.statusCode=e),typeof t=="string"&&(this.statusMessage=t,t=void 0);const s=r||t;if(s&&!Array.isArray(s))for(const a in s)this.setHeader(a,s[a]);return this.headersSent=true,this}writeProcessing(){}setTimeout(e,t){return this}appendHeader(e,t){e=e.toLowerCase();const r=this._headers[e],s=[...Array.isArray(r)?r:[r],...Array.isArray(t)?t:[t]].filter(Boolean);return this._headers[e]=s.length>1?s:s[0],this}setHeader(e,t){return this._headers[e.toLowerCase()]=t,this}setHeaders(e){for(const[t,r]of Object.entries(e))this.setHeader(t,r);return this}getHeader(e){return this._headers[e.toLowerCase()]}getHeaders(){return this._headers}getHeaderNames(){return Object.keys(this._headers)}hasHeader(e){return e.toLowerCase()in this._headers}removeHeader(e){delete this._headers[e.toLowerCase()];}addTrailers(e){}flushHeaders(){}writeEarlyHints(e,t){typeof t=="function"&&t();}};const E$1=(()=>{const n=function(){};return n.prototype=Object.create(null),n})();function R$1(n={}){const e=new E$1,t=Array.isArray(n)||H$1(n)?n:Object.entries(n);for(const[r,s]of t)if(s){if(e[r]===void 0){e[r]=s;continue}e[r]=[...Array.isArray(e[r])?e[r]:[e[r]],...Array.isArray(s)?s:[s]];}return e}function H$1(n){return typeof n?.entries=="function"}function v$1(n={}){if(n instanceof Headers)return n;const e=new Headers;for(const[t,r]of Object.entries(n))if(r!==void 0){if(Array.isArray(r)){for(const s of r)e.append(t,String(s));continue}e.set(t,String(r));}return e}const S$2=new Set([101,204,205,304]);async function b$2(n,e){const t=new y,r=new w$1(t);t.url=e.url?.toString()||"/";let s;if(!t.url.startsWith("/")){const d=new URL(t.url);s=d.host,t.url=d.pathname+d.search+d.hash;}t.method=e.method||"GET",t.headers=R$1(e.headers||{}),t.headers.host||(t.headers.host=e.host||s||"localhost"),t.connection.encrypted=t.connection.encrypted||e.protocol==="https",t.body=e.body||null,t.__unenv__=e.context,await n(t,r);let a=r._data;(S$2.has(r.statusCode)||t.method.toUpperCase()==="HEAD")&&(a=null,delete r._headers["content-length"]);const u={status:r.statusCode,statusText:r.statusMessage,headers:r._headers,body:a};return t.destroy(),r.destroy(),u}async function C$1(n,e,t={}){try{const r=await b$2(n,{url:e,...t});return new Response(r.body,{status:r.status,statusText:r.statusText,headers:v$1(r.headers)})}catch(r){return new Response(r.toString(),{status:Number.parseInt(r.statusCode||r.code)||500,statusText:r.statusText})}}
 
 function hasProp$1(obj, prop) {
   try {
@@ -4289,7 +4289,7 @@ async function errorHandler(error, event) {
 }
 
 const appConfig = {"name":"vinxi","routers":[{"name":"public","type":"static","base":"/","dir":"./public","root":"/Users/hector/Documents/AIProjects/untitled folder","order":0,"outDir":"/Users/hector/Documents/AIProjects/untitled folder/.vinxi/build/public"},{"name":"ssr","type":"http","link":{"client":"client"},"handler":"src/entry-server.tsx","extensions":["js","jsx","ts","tsx"],"target":"server","root":"/Users/hector/Documents/AIProjects/untitled folder","base":"/","outDir":"/Users/hector/Documents/AIProjects/untitled folder/.vinxi/build/ssr","order":1},{"name":"client","type":"client","base":"/_build","handler":"src/entry-client.tsx","extensions":["js","jsx","ts","tsx"],"target":"browser","root":"/Users/hector/Documents/AIProjects/untitled folder","outDir":"/Users/hector/Documents/AIProjects/untitled folder/.vinxi/build/client","order":2},{"name":"server-fns","type":"http","base":"/_server","handler":"node_modules/@solidjs/start/dist/runtime/server-handler.js","target":"server","root":"/Users/hector/Documents/AIProjects/untitled folder","outDir":"/Users/hector/Documents/AIProjects/untitled folder/.vinxi/build/server-fns","order":3}],"server":{"compressPublicAssets":{"brotli":true},"routeRules":{"/_build/assets/**":{"headers":{"cache-control":"public, immutable, max-age=31536000"}}},"experimental":{"asyncContext":true},"prerender":{}},"root":"/Users/hector/Documents/AIProjects/untitled folder"};
-				const buildManifest = {"ssr":{"src/routes/api/query.ts?pick=POST":{"file":"query.js","name":"query","src":"src/routes/api/query.ts?pick=POST","isEntry":true,"isDynamicEntry":true},"src/routes/api/tv/claim.ts?pick=POST":{"file":"claim.js","name":"claim","src":"src/routes/api/tv/claim.ts?pick=POST","isEntry":true,"isDynamicEntry":true},"src/routes/video/[...path].ts?pick=GET":{"file":"_...path_.js","name":"_...path_","src":"src/routes/video/[...path].ts?pick=GET","isEntry":true,"isDynamicEntry":true},"virtual:$vinxi/handler/ssr":{"file":"ssr.js","name":"ssr","src":"virtual:$vinxi/handler/ssr","isEntry":true,"dynamicImports":["src/routes/api/query.ts?pick=POST","src/routes/api/query.ts?pick=POST","src/routes/video/[...path].ts?pick=GET","src/routes/video/[...path].ts?pick=GET","src/routes/video/[...path].ts?pick=GET","src/routes/video/[...path].ts?pick=GET","src/routes/api/tv/claim.ts?pick=POST","src/routes/api/tv/claim.ts?pick=POST"]}},"client":{"_AppHeader-CUj4U_yJ.js":{"file":"assets/AppHeader-CUj4U_yJ.js","name":"AppHeader","imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js","_routing-C79xCL_B.js"]},"_Hero-CRNNmClI.js":{"file":"assets/Hero-CRNNmClI.js","name":"Hero","imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js"]},"_PosterCard-DmoakFcO.js":{"file":"assets/PosterCard-DmoakFcO.js","name":"PosterCard","imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js"]},"_PosterGrid-CJFNSx0A.js":{"file":"assets/PosterGrid-CJFNSx0A.js","name":"PosterGrid","imports":["_web-C1rhI-gZ.js","_PosterCard-DmoakFcO.js"]},"_Spinner-Dr2KSAs5.js":{"file":"assets/Spinner-Dr2KSAs5.js","name":"Spinner","imports":["_preload-helper-CM3UJVvY.js","_web-C1rhI-gZ.js"],"dynamicImports":["src/lib/auth.ts"]},"_preload-helper-CM3UJVvY.js":{"file":"assets/preload-helper-CM3UJVvY.js","name":"preload-helper"},"_routing-C79xCL_B.js":{"file":"assets/routing-C79xCL_B.js","name":"routing","imports":["_web-C1rhI-gZ.js"]},"_session-Bh7Sqjdq.js":{"file":"assets/session-Bh7Sqjdq.js","name":"session"},"_web-C1rhI-gZ.js":{"file":"assets/web-C1rhI-gZ.js","name":"web"},"node_modules/hls.js/dist/hls.mjs":{"file":"assets/hls-Bn6EWr6S.js","name":"hls","src":"node_modules/hls.js/dist/hls.mjs","isDynamicEntry":true},"src/lib/auth.ts":{"file":"assets/auth-CwtiEGe-.js","name":"auth","src":"src/lib/auth.ts","isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_session-Bh7Sqjdq.js"]},"src/routes/callback.tsx?pick=default&pick=$css":{"file":"assets/callback-CynM83Nw.js","name":"callback","src":"src/routes/callback.tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","src/lib/auth.ts","_routing-C79xCL_B.js","_session-Bh7Sqjdq.js"]},"src/routes/category/[key].tsx?pick=default&pick=$css":{"file":"assets/_key_-BChodniO.js","name":"_key_","src":"src/routes/category/[key].tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js","_AppHeader-CUj4U_yJ.js","_PosterGrid-CJFNSx0A.js","_routing-C79xCL_B.js","_preload-helper-CM3UJVvY.js","_PosterCard-DmoakFcO.js"]},"src/routes/continue.tsx?pick=default&pick=$css":{"file":"assets/continue-CBlqRWcl.js","name":"continue","src":"src/routes/continue.tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js","_AppHeader-CUj4U_yJ.js","_PosterCard-DmoakFcO.js","_routing-C79xCL_B.js","_preload-helper-CM3UJVvY.js"]},"src/routes/home.tsx?pick=default&pick=$css":{"file":"assets/home-Bdu3c_9E.js","name":"home","src":"src/routes/home.tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js","_AppHeader-CUj4U_yJ.js","_PosterCard-DmoakFcO.js","_routing-C79xCL_B.js","_preload-helper-CM3UJVvY.js"]},"src/routes/index.tsx?pick=default&pick=$css":{"file":"assets/index-D3JdWPJ4.js","name":"index","src":"src/routes/index.tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js","_routing-C79xCL_B.js","_preload-helper-CM3UJVvY.js"]},"src/routes/login.tsx?pick=default&pick=$css":{"file":"assets/login-D2NqzxpP.js","name":"login","src":"src/routes/login.tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","src/lib/auth.ts","_session-Bh7Sqjdq.js"]},"src/routes/search.tsx?pick=default&pick=$css":{"file":"assets/search-DhhRrfE2.js","name":"search","src":"src/routes/search.tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js","_AppHeader-CUj4U_yJ.js","_PosterGrid-CJFNSx0A.js","_routing-C79xCL_B.js","_preload-helper-CM3UJVvY.js","_PosterCard-DmoakFcO.js"]},"src/routes/series/[id].tsx?pick=default&pick=$css":{"file":"assets/_id_-BNSRxVfn.js","name":"_id_","src":"src/routes/series/[id].tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js","_AppHeader-CUj4U_yJ.js","_Hero-CRNNmClI.js","_routing-C79xCL_B.js","_preload-helper-CM3UJVvY.js"]},"src/routes/title/[id].tsx?pick=default&pick=$css":{"file":"assets/_id_-i3zPRHUm.js","name":"_id_","src":"src/routes/title/[id].tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js","_AppHeader-CUj4U_yJ.js","_Hero-CRNNmClI.js","_routing-C79xCL_B.js","_preload-helper-CM3UJVvY.js"]},"src/routes/tv.tsx?pick=default&pick=$css":{"file":"assets/tv-7pZSA4Nz.js","name":"tv","src":"src/routes/tv.tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_session-Bh7Sqjdq.js","_routing-C79xCL_B.js"]},"src/routes/watch/[id].tsx?pick=default&pick=$css":{"file":"assets/_id_-nyVIJ77p.js","name":"_id_","src":"src/routes/watch/[id].tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js","_preload-helper-CM3UJVvY.js","_routing-C79xCL_B.js"],"dynamicImports":["node_modules/hls.js/dist/hls.mjs","node_modules/hls.js/dist/hls.mjs"]},"virtual:$vinxi/handler/client":{"file":"assets/client-g3VdNY-c.js","name":"client","src":"virtual:$vinxi/handler/client","isEntry":true,"imports":["_web-C1rhI-gZ.js","_preload-helper-CM3UJVvY.js","src/lib/auth.ts","_routing-C79xCL_B.js","_session-Bh7Sqjdq.js"],"dynamicImports":["src/routes/callback.tsx?pick=default&pick=$css","src/routes/continue.tsx?pick=default&pick=$css","src/routes/home.tsx?pick=default&pick=$css","src/routes/index.tsx?pick=default&pick=$css","src/routes/login.tsx?pick=default&pick=$css","src/routes/search.tsx?pick=default&pick=$css","src/routes/tv.tsx?pick=default&pick=$css","src/routes/category/[key].tsx?pick=default&pick=$css","src/routes/series/[id].tsx?pick=default&pick=$css","src/routes/title/[id].tsx?pick=default&pick=$css","src/routes/watch/[id].tsx?pick=default&pick=$css"],"css":["assets/client-BojkQ0yL.css"]}},"server-fns":{"_server-fns-BkGPVptV.js":{"file":"assets/server-fns-BkGPVptV.js","name":"server-fns","dynamicImports":["src/routes/api/query.ts?pick=POST","src/routes/api/query.ts?pick=POST","src/routes/video/[...path].ts?pick=GET","src/routes/video/[...path].ts?pick=GET","src/routes/video/[...path].ts?pick=GET","src/routes/video/[...path].ts?pick=GET","src/routes/api/tv/claim.ts?pick=POST","src/routes/api/tv/claim.ts?pick=POST","src/app.tsx"]},"src/app.tsx":{"file":"assets/app-D_SIGV8g.js","name":"app","src":"src/app.tsx","isDynamicEntry":true,"imports":["_server-fns-BkGPVptV.js"],"css":["assets/app-BojkQ0yL.css"]},"src/routes/api/query.ts?pick=POST":{"file":"query.js","name":"query","src":"src/routes/api/query.ts?pick=POST","isEntry":true,"isDynamicEntry":true},"src/routes/api/tv/claim.ts?pick=POST":{"file":"claim.js","name":"claim","src":"src/routes/api/tv/claim.ts?pick=POST","isEntry":true,"isDynamicEntry":true},"src/routes/video/[...path].ts?pick=GET":{"file":"_...path_.js","name":"_...path_","src":"src/routes/video/[...path].ts?pick=GET","isEntry":true,"isDynamicEntry":true},"virtual:$vinxi/handler/server-fns":{"file":"server-fns.js","name":"server-fns","src":"virtual:$vinxi/handler/server-fns","isEntry":true,"imports":["_server-fns-BkGPVptV.js"]}}};
+				const buildManifest = {"ssr":{"src/routes/api/query.ts?pick=POST":{"file":"query.js","name":"query","src":"src/routes/api/query.ts?pick=POST","isEntry":true,"isDynamicEntry":true},"src/routes/api/tv/claim.ts?pick=POST":{"file":"claim.js","name":"claim","src":"src/routes/api/tv/claim.ts?pick=POST","isEntry":true,"isDynamicEntry":true},"src/routes/video/[...path].ts?pick=GET":{"file":"_...path_.js","name":"_...path_","src":"src/routes/video/[...path].ts?pick=GET","isEntry":true,"isDynamicEntry":true},"virtual:$vinxi/handler/ssr":{"file":"ssr.js","name":"ssr","src":"virtual:$vinxi/handler/ssr","isEntry":true,"dynamicImports":["src/routes/api/query.ts?pick=POST","src/routes/api/query.ts?pick=POST","src/routes/video/[...path].ts?pick=GET","src/routes/video/[...path].ts?pick=GET","src/routes/video/[...path].ts?pick=GET","src/routes/video/[...path].ts?pick=GET","src/routes/api/tv/claim.ts?pick=POST","src/routes/api/tv/claim.ts?pick=POST"]}},"client":{"_AppHeader-CUj4U_yJ.js":{"file":"assets/AppHeader-CUj4U_yJ.js","name":"AppHeader","imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js","_routing-C79xCL_B.js"]},"_Hero-CRNNmClI.js":{"file":"assets/Hero-CRNNmClI.js","name":"Hero","imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js"]},"_PosterCard-DmoakFcO.js":{"file":"assets/PosterCard-DmoakFcO.js","name":"PosterCard","imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js"]},"_PosterGrid-CJFNSx0A.js":{"file":"assets/PosterGrid-CJFNSx0A.js","name":"PosterGrid","imports":["_web-C1rhI-gZ.js","_PosterCard-DmoakFcO.js"]},"_Spinner-Dr2KSAs5.js":{"file":"assets/Spinner-Dr2KSAs5.js","name":"Spinner","imports":["_preload-helper-CM3UJVvY.js","_web-C1rhI-gZ.js"],"dynamicImports":["src/lib/auth.ts"]},"_appversion-C62tv9nw.js":{"file":"assets/appversion-C62tv9nw.js","name":"appversion"},"_browser-CjSdxGTc.js":{"file":"assets/browser-CjSdxGTc.js","name":"browser"},"_preload-helper-CM3UJVvY.js":{"file":"assets/preload-helper-CM3UJVvY.js","name":"preload-helper"},"_routing-C79xCL_B.js":{"file":"assets/routing-C79xCL_B.js","name":"routing","imports":["_web-C1rhI-gZ.js"]},"_session-Bh7Sqjdq.js":{"file":"assets/session-Bh7Sqjdq.js","name":"session"},"_web-C1rhI-gZ.js":{"file":"assets/web-C1rhI-gZ.js","name":"web"},"node_modules/hls.js/dist/hls.mjs":{"file":"assets/hls-Bn6EWr6S.js","name":"hls","src":"node_modules/hls.js/dist/hls.mjs","isDynamicEntry":true},"src/lib/auth.ts":{"file":"assets/auth-CwtiEGe-.js","name":"auth","src":"src/lib/auth.ts","isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_session-Bh7Sqjdq.js"]},"src/routes/callback.tsx?pick=default&pick=$css":{"file":"assets/callback-CynM83Nw.js","name":"callback","src":"src/routes/callback.tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","src/lib/auth.ts","_routing-C79xCL_B.js","_session-Bh7Sqjdq.js"]},"src/routes/category/[key].tsx?pick=default&pick=$css":{"file":"assets/_key_-BChodniO.js","name":"_key_","src":"src/routes/category/[key].tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js","_AppHeader-CUj4U_yJ.js","_PosterGrid-CJFNSx0A.js","_routing-C79xCL_B.js","_preload-helper-CM3UJVvY.js","_PosterCard-DmoakFcO.js"]},"src/routes/continue.tsx?pick=default&pick=$css":{"file":"assets/continue-CBlqRWcl.js","name":"continue","src":"src/routes/continue.tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js","_AppHeader-CUj4U_yJ.js","_PosterCard-DmoakFcO.js","_routing-C79xCL_B.js","_preload-helper-CM3UJVvY.js"]},"src/routes/home.tsx?pick=default&pick=$css":{"file":"assets/home-Bdu3c_9E.js","name":"home","src":"src/routes/home.tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js","_AppHeader-CUj4U_yJ.js","_PosterCard-DmoakFcO.js","_routing-C79xCL_B.js","_preload-helper-CM3UJVvY.js"]},"src/routes/index.tsx?pick=default&pick=$css":{"file":"assets/index-D3JdWPJ4.js","name":"index","src":"src/routes/index.tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js","_routing-C79xCL_B.js","_preload-helper-CM3UJVvY.js"]},"src/routes/login.tsx?pick=default&pick=$css":{"file":"assets/login-D2NqzxpP.js","name":"login","src":"src/routes/login.tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","src/lib/auth.ts","_session-Bh7Sqjdq.js"]},"src/routes/search.tsx?pick=default&pick=$css":{"file":"assets/search-soUzrq6_.js","name":"search","src":"src/routes/search.tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js","_AppHeader-CUj4U_yJ.js","_PosterGrid-CJFNSx0A.js","_routing-C79xCL_B.js","_preload-helper-CM3UJVvY.js","_PosterCard-DmoakFcO.js"]},"src/routes/series/[id].tsx?pick=default&pick=$css":{"file":"assets/_id_-BNSRxVfn.js","name":"_id_","src":"src/routes/series/[id].tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js","_AppHeader-CUj4U_yJ.js","_Hero-CRNNmClI.js","_routing-C79xCL_B.js","_preload-helper-CM3UJVvY.js"]},"src/routes/title/[id].tsx?pick=default&pick=$css":{"file":"assets/_id_-i3zPRHUm.js","name":"_id_","src":"src/routes/title/[id].tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js","_AppHeader-CUj4U_yJ.js","_Hero-CRNNmClI.js","_routing-C79xCL_B.js","_preload-helper-CM3UJVvY.js"]},"src/routes/tv.tsx?pick=default&pick=$css":{"file":"assets/tv-Cv2T59-u.js","name":"tv","src":"src/routes/tv.tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_browser-CjSdxGTc.js","_session-Bh7Sqjdq.js","_routing-C79xCL_B.js"]},"src/routes/update.tsx?pick=default&pick=$css":{"file":"assets/update-DygZznL7.js","name":"update","src":"src/routes/update.tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_browser-CjSdxGTc.js","_appversion-C62tv9nw.js"]},"src/routes/watch/[id].tsx?pick=default&pick=$css":{"file":"assets/_id_-nyVIJ77p.js","name":"_id_","src":"src/routes/watch/[id].tsx?pick=default&pick=$css","isEntry":true,"isDynamicEntry":true,"imports":["_web-C1rhI-gZ.js","_Spinner-Dr2KSAs5.js","_preload-helper-CM3UJVvY.js","_routing-C79xCL_B.js"],"dynamicImports":["node_modules/hls.js/dist/hls.mjs","node_modules/hls.js/dist/hls.mjs"]},"virtual:$vinxi/handler/client":{"file":"assets/client-DiKG4G_t.js","name":"client","src":"virtual:$vinxi/handler/client","isEntry":true,"imports":["_web-C1rhI-gZ.js","_preload-helper-CM3UJVvY.js","src/lib/auth.ts","_appversion-C62tv9nw.js","_routing-C79xCL_B.js","_session-Bh7Sqjdq.js"],"dynamicImports":["src/routes/callback.tsx?pick=default&pick=$css","src/routes/continue.tsx?pick=default&pick=$css","src/routes/home.tsx?pick=default&pick=$css","src/routes/index.tsx?pick=default&pick=$css","src/routes/login.tsx?pick=default&pick=$css","src/routes/search.tsx?pick=default&pick=$css","src/routes/tv.tsx?pick=default&pick=$css","src/routes/update.tsx?pick=default&pick=$css","src/routes/category/[key].tsx?pick=default&pick=$css","src/routes/series/[id].tsx?pick=default&pick=$css","src/routes/title/[id].tsx?pick=default&pick=$css","src/routes/watch/[id].tsx?pick=default&pick=$css"],"css":["assets/client-BojkQ0yL.css"]}},"server-fns":{"_server-fns-ByDVJvdG.js":{"file":"assets/server-fns-ByDVJvdG.js","name":"server-fns","dynamicImports":["src/routes/api/query.ts?pick=POST","src/routes/api/query.ts?pick=POST","src/routes/video/[...path].ts?pick=GET","src/routes/video/[...path].ts?pick=GET","src/routes/video/[...path].ts?pick=GET","src/routes/video/[...path].ts?pick=GET","src/routes/api/tv/claim.ts?pick=POST","src/routes/api/tv/claim.ts?pick=POST","src/app.tsx"]},"src/app.tsx":{"file":"assets/app-Bb8ouiTo.js","name":"app","src":"src/app.tsx","isDynamicEntry":true,"imports":["_server-fns-ByDVJvdG.js"],"css":["assets/app-BojkQ0yL.css"]},"src/routes/api/query.ts?pick=POST":{"file":"query.js","name":"query","src":"src/routes/api/query.ts?pick=POST","isEntry":true,"isDynamicEntry":true},"src/routes/api/tv/claim.ts?pick=POST":{"file":"claim.js","name":"claim","src":"src/routes/api/tv/claim.ts?pick=POST","isEntry":true,"isDynamicEntry":true},"src/routes/video/[...path].ts?pick=GET":{"file":"_...path_.js","name":"_...path_","src":"src/routes/video/[...path].ts?pick=GET","isEntry":true,"isDynamicEntry":true},"virtual:$vinxi/handler/server-fns":{"file":"server-fns.js","name":"server-fns","src":"virtual:$vinxi/handler/server-fns","isEntry":true,"imports":["_server-fns-ByDVJvdG.js"]}}};
 
 				const routeManifest = {"ssr":{},"client":{},"server-fns":{}};
 
@@ -4552,140 +4552,147 @@ const assets = {
   "/icon-192.png": {
     "type": "image/png",
     "etag": "\"384-HRUm7H6MdY1vWu0GXgtyqnvKssY\"",
-    "mtime": "2026-07-21T17:02:08.259Z",
+    "mtime": "2026-07-21T20:11:57.966Z",
     "size": 900,
     "path": "../public/icon-192.png"
   },
   "/icon-512.png": {
     "type": "image/png",
     "etag": "\"1048-em7bnDIiyYzjPc2M7zRI1noIqjg\"",
-    "mtime": "2026-07-21T17:02:08.259Z",
+    "mtime": "2026-07-21T20:11:57.966Z",
     "size": 4168,
     "path": "../public/icon-512.png"
-  },
-  "/index.html": {
-    "type": "text/html; charset=utf-8",
-    "encoding": null,
-    "etag": "\"2f5c-+CcV75RAmpBqPUsMXwdWodb5OoA\"",
-    "mtime": "2026-07-21T17:02:09.103Z",
-    "size": 12124,
-    "path": "../public/index.html"
   },
   "/index.html.br": {
     "type": "text/html; charset=utf-8",
     "encoding": "br",
-    "etag": "\"35b-t0HmxaB+wX5wLM/IzaNd/uM3Oyk\"",
-    "mtime": "2026-07-21T17:02:09.110Z",
-    "size": 859,
+    "etag": "\"39e-WV7q1wEAMscUd9bgu+i1ZVjbvc4\"",
+    "mtime": "2026-07-21T20:11:58.833Z",
+    "size": 926,
     "path": "../public/index.html.br"
+  },
+  "/index.html": {
+    "type": "text/html; charset=utf-8",
+    "encoding": null,
+    "etag": "\"3334-HIHvcD2Et8aR7vyQuMqhn+1/oz4\"",
+    "mtime": "2026-07-21T20:11:58.824Z",
+    "size": 13108,
+    "path": "../public/index.html"
+  },
+  "/manifest.webmanifest": {
+    "type": "application/manifest+json",
+    "etag": "\"1f2-MRr+irUn7v6GfQwTFaG18jn6IZA\"",
+    "mtime": "2026-07-21T20:11:57.966Z",
+    "size": 498,
+    "path": "../public/manifest.webmanifest"
   },
   "/index.html.gz": {
     "type": "text/html; charset=utf-8",
     "encoding": "gzip",
-    "etag": "\"455-zvARaKO2jn5FzUIkpZVN5zDwtjY\"",
-    "mtime": "2026-07-21T17:02:09.104Z",
-    "size": 1109,
+    "etag": "\"4a5-z7pL1KcW1BrVsUN3pp2YxH/XLj4\"",
+    "mtime": "2026-07-21T20:11:58.826Z",
+    "size": 1189,
     "path": "../public/index.html.gz"
   },
   "/tv-banner.png": {
     "type": "image/png",
     "etag": "\"4c8-ZbXqJY5ZQ+08Am88zYDqWg4lu9E\"",
-    "mtime": "2026-07-21T17:02:08.259Z",
+    "mtime": "2026-07-21T20:11:57.966Z",
     "size": 1224,
     "path": "../public/tv-banner.png"
+  },
+  "/version.json": {
+    "type": "application/json",
+    "etag": "\"6c-8maT0F3s/J500NaoJ0z0j1NgjcU\"",
+    "mtime": "2026-07-21T20:11:57.966Z",
+    "size": 108,
+    "path": "../public/version.json"
+  },
+  "/_build/.vite/manifest.json.gz": {
+    "type": "application/json",
+    "encoding": "gzip",
+    "etag": "\"445-xoD+YRtwKdT84jG/q2MznK5xcC4\"",
+    "mtime": "2026-07-21T20:11:57.980Z",
+    "size": 1093,
+    "path": "../public/_build/.vite/manifest.json.gz"
   },
   "/_build/.vite/manifest.json": {
     "type": "application/json",
     "encoding": null,
-    "etag": "\"1d1f-54ql3IoFkaG41aGv9Aymobx1mjY\"",
-    "mtime": "2026-07-21T17:02:08.261Z",
-    "size": 7455,
+    "etag": "\"1fb2-MfQWokJDcmqq+XikWGoSHcwjNCw\"",
+    "mtime": "2026-07-21T20:11:57.969Z",
+    "size": 8114,
     "path": "../public/_build/.vite/manifest.json"
   },
   "/_build/.vite/manifest.json.br": {
     "type": "application/json",
     "encoding": "br",
-    "etag": "\"37a-jim554Ck36v+ow+vaA7k5ZYKYoU\"",
-    "mtime": "2026-07-21T17:02:08.273Z",
-    "size": 890,
+    "etag": "\"3c4-i9tDow4iJ66XTvJKBmImH/8Phuk\"",
+    "mtime": "2026-07-21T20:11:57.983Z",
+    "size": 964,
     "path": "../public/_build/.vite/manifest.json.br"
   },
-  "/_build/.vite/manifest.json.gz": {
-    "type": "application/json",
-    "encoding": "gzip",
-    "etag": "\"3e6-dF2F+GFI4ssDhkZdDpwx4t7n8Hs\"",
-    "mtime": "2026-07-21T17:02:08.268Z",
-    "size": 998,
-    "path": "../public/_build/.vite/manifest.json.gz"
+  "/_server/assets/app-Bb8ouiTo.js.br": {
+    "type": "text/javascript; charset=utf-8",
+    "encoding": "br",
+    "etag": "\"1b70-MOA6xblR9fiAX7xdEAHfxUHNXeo\"",
+    "mtime": "2026-07-21T20:11:57.988Z",
+    "size": 7024,
+    "path": "../public/_server/assets/app-Bb8ouiTo.js.br"
   },
-  "/manifest.webmanifest": {
-    "type": "application/manifest+json",
-    "etag": "\"1f2-MRr+irUn7v6GfQwTFaG18jn6IZA\"",
-    "mtime": "2026-07-21T17:02:08.259Z",
-    "size": 498,
-    "path": "../public/manifest.webmanifest"
+  "/_server/assets/app-Bb8ouiTo.js.gz": {
+    "type": "text/javascript; charset=utf-8",
+    "encoding": "gzip",
+    "etag": "\"1e3f-l1a3BDXJeoSRG7IxSNsySk3sA3w\"",
+    "mtime": "2026-07-21T20:11:57.980Z",
+    "size": 7743,
+    "path": "../public/_server/assets/app-Bb8ouiTo.js.gz"
   },
   "/_server/assets/app-BojkQ0yL.css": {
     "type": "text/css; charset=utf-8",
     "encoding": null,
     "etag": "\"1fd7-KCSx32Q3dJTgQF5v/mIrQlq9HC0\"",
-    "mtime": "2026-07-21T17:02:08.264Z",
+    "mtime": "2026-07-21T20:11:57.971Z",
     "size": 8151,
     "path": "../public/_server/assets/app-BojkQ0yL.css"
-  },
-  "/_server/assets/app-BojkQ0yL.css.gz": {
-    "type": "text/css; charset=utf-8",
-    "encoding": "gzip",
-    "etag": "\"9fb-OiGn4z1S36NMplvxAshWIRg5idY\"",
-    "mtime": "2026-07-21T17:02:08.308Z",
-    "size": 2555,
-    "path": "../public/_server/assets/app-BojkQ0yL.css.gz"
-  },
-  "/_server/assets/app-D_SIGV8g.js.br": {
-    "type": "text/javascript; charset=utf-8",
-    "encoding": "br",
-    "etag": "\"1a93-RcanNOMAt5QrEW9CNGvVecj7Z4U\"",
-    "mtime": "2026-07-21T17:02:08.309Z",
-    "size": 6803,
-    "path": "../public/_server/assets/app-D_SIGV8g.js.br"
   },
   "/_server/assets/app-BojkQ0yL.css.br": {
     "type": "text/css; charset=utf-8",
     "encoding": "br",
     "etag": "\"8aa-EZygXJjIxZXfhh13PDS14ryI+Lc\"",
-    "mtime": "2026-07-21T17:02:08.308Z",
+    "mtime": "2026-07-21T20:11:57.980Z",
     "size": 2218,
     "path": "../public/_server/assets/app-BojkQ0yL.css.br"
   },
-  "/_server/assets/app-D_SIGV8g.js.gz": {
-    "type": "text/javascript; charset=utf-8",
+  "/_server/assets/app-BojkQ0yL.css.gz": {
+    "type": "text/css; charset=utf-8",
     "encoding": "gzip",
-    "etag": "\"1d4a-qCACUgRtDI1SdkOoPoIZcoItRhs\"",
-    "mtime": "2026-07-21T17:02:08.309Z",
-    "size": 7498,
-    "path": "../public/_server/assets/app-D_SIGV8g.js.gz"
+    "etag": "\"9fb-OiGn4z1S36NMplvxAshWIRg5idY\"",
+    "mtime": "2026-07-21T20:11:57.980Z",
+    "size": 2555,
+    "path": "../public/_server/assets/app-BojkQ0yL.css.gz"
   },
-  "/_server/assets/server-fns-BkGPVptV.js.gz": {
-    "type": "text/javascript; charset=utf-8",
-    "encoding": "gzip",
-    "etag": "\"1421-L2UQhZZcAWbNbrBAPtJGq0KfEXo\"",
-    "mtime": "2026-07-21T17:02:08.310Z",
-    "size": 5153,
-    "path": "../public/_server/assets/server-fns-BkGPVptV.js.gz"
-  },
-  "/_server/assets/server-fns-BkGPVptV.js.br": {
+  "/_server/assets/server-fns-ByDVJvdG.js.br": {
     "type": "text/javascript; charset=utf-8",
     "encoding": "br",
-    "etag": "\"1219-/oGH9NGtPxizVYCrIBQFHMcNJjo\"",
-    "mtime": "2026-07-21T17:02:08.317Z",
-    "size": 4633,
-    "path": "../public/_server/assets/server-fns-BkGPVptV.js.br"
+    "etag": "\"1218-vS3WrLcczD49OVkKTmQLGbfjpIs\"",
+    "mtime": "2026-07-21T20:11:57.986Z",
+    "size": 4632,
+    "path": "../public/_server/assets/server-fns-ByDVJvdG.js.br"
+  },
+  "/_server/assets/server-fns-ByDVJvdG.js.gz": {
+    "type": "text/javascript; charset=utf-8",
+    "encoding": "gzip",
+    "etag": "\"142c-7Ltqha8ozG5PArX7NUoC7OaZ8xQ\"",
+    "mtime": "2026-07-21T20:11:57.980Z",
+    "size": 5164,
+    "path": "../public/_server/assets/server-fns-ByDVJvdG.js.gz"
   },
   "/_build/assets/AppHeader-CUj4U_yJ.js": {
     "type": "text/javascript; charset=utf-8",
     "encoding": null,
     "etag": "\"68d-WAZjhgUdbUm/hn3SMKTJIO8qJ1Q\"",
-    "mtime": "2026-07-21T17:02:08.262Z",
+    "mtime": "2026-07-21T20:11:57.969Z",
     "size": 1677,
     "path": "../public/_build/assets/AppHeader-CUj4U_yJ.js"
   },
@@ -4693,7 +4700,7 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": "br",
     "etag": "\"2be-dxTYQUGd9l2eUBqB0S0dtDfL0i0\"",
-    "mtime": "2026-07-21T17:02:08.268Z",
+    "mtime": "2026-07-21T20:11:57.983Z",
     "size": 702,
     "path": "../public/_build/assets/AppHeader-CUj4U_yJ.js.br"
   },
@@ -4701,7 +4708,7 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": "gzip",
     "etag": "\"339-Avokp5des1dEYNVk+kMZfq02wPg\"",
-    "mtime": "2026-07-21T17:02:08.268Z",
+    "mtime": "2026-07-21T20:11:57.983Z",
     "size": 825,
     "path": "../public/_build/assets/AppHeader-CUj4U_yJ.js.gz"
   },
@@ -4709,7 +4716,7 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": null,
     "etag": "\"a94-57d15pQj7N0wvt1hMoXSV5N5b4g\"",
-    "mtime": "2026-07-21T17:02:08.262Z",
+    "mtime": "2026-07-21T20:11:57.969Z",
     "size": 2708,
     "path": "../public/_build/assets/Hero-CRNNmClI.js"
   },
@@ -4717,7 +4724,7 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": "br",
     "etag": "\"401-qYZHzLFWVkeevBJKU4avzf88dio\"",
-    "mtime": "2026-07-21T17:02:08.273Z",
+    "mtime": "2026-07-21T20:11:57.983Z",
     "size": 1025,
     "path": "../public/_build/assets/Hero-CRNNmClI.js.br"
   },
@@ -4725,15 +4732,22 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": "gzip",
     "etag": "\"48b-cFtquFT4rA1xifbbakTZjkTH0g8\"",
-    "mtime": "2026-07-21T17:02:08.268Z",
+    "mtime": "2026-07-21T20:11:57.983Z",
     "size": 1163,
     "path": "../public/_build/assets/Hero-CRNNmClI.js.gz"
+  },
+  "/HeliumTV.apk": {
+    "type": "application/vnd.android.package-archive",
+    "etag": "\"1e5327-FtOlwkSRd6kQTS37AY+7Trpu/SE\"",
+    "mtime": "2026-07-21T20:11:57.968Z",
+    "size": 1987367,
+    "path": "../public/HeliumTV.apk"
   },
   "/_build/assets/PosterCard-DmoakFcO.js": {
     "type": "text/javascript; charset=utf-8",
     "encoding": null,
     "etag": "\"41b-gcAe4PuDriSboxS/MSol7n7ZCWk\"",
-    "mtime": "2026-07-21T17:02:08.262Z",
+    "mtime": "2026-07-21T20:11:57.969Z",
     "size": 1051,
     "path": "../public/_build/assets/PosterCard-DmoakFcO.js"
   },
@@ -4741,7 +4755,7 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": "br",
     "etag": "\"1f0-7D0q8bjAq4vQ4CR0yKsWISPqols\"",
-    "mtime": "2026-07-21T17:02:08.268Z",
+    "mtime": "2026-07-21T20:11:57.983Z",
     "size": 496,
     "path": "../public/_build/assets/PosterCard-DmoakFcO.js.br"
   },
@@ -4749,22 +4763,15 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": "gzip",
     "etag": "\"23c-QypPwlfJZEDMQnM8H8iH25ObCV8\"",
-    "mtime": "2026-07-21T17:02:08.268Z",
+    "mtime": "2026-07-21T20:11:57.983Z",
     "size": 572,
     "path": "../public/_build/assets/PosterCard-DmoakFcO.js.gz"
-  },
-  "/_build/assets/PosterGrid-CJFNSx0A.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"1ec-yspw6EkXcW0ETOac4v4a1k5sA3I\"",
-    "mtime": "2026-07-21T17:02:08.262Z",
-    "size": 492,
-    "path": "../public/_build/assets/PosterGrid-CJFNSx0A.js"
   },
   "/_build/assets/Spinner-Dr2KSAs5.js": {
     "type": "text/javascript; charset=utf-8",
     "encoding": null,
     "etag": "\"1ae4-C4eUVTb6bqozIxQW83rOIrqx/Ck\"",
-    "mtime": "2026-07-21T17:02:08.262Z",
+    "mtime": "2026-07-21T20:11:57.970Z",
     "size": 6884,
     "path": "../public/_build/assets/Spinner-Dr2KSAs5.js"
   },
@@ -4772,7 +4779,7 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": "br",
     "etag": "\"a82-0OZFWOvJMpzcluU5qgDLTKtWnmI\"",
-    "mtime": "2026-07-21T17:02:08.273Z",
+    "mtime": "2026-07-21T20:11:57.988Z",
     "size": 2690,
     "path": "../public/_build/assets/Spinner-Dr2KSAs5.js.br"
   },
@@ -4780,15 +4787,22 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": "gzip",
     "etag": "\"bf2-NdgcsT39GZCIEx7yaHzjDAv8sjA\"",
-    "mtime": "2026-07-21T17:02:08.268Z",
+    "mtime": "2026-07-21T20:11:57.983Z",
     "size": 3058,
     "path": "../public/_build/assets/Spinner-Dr2KSAs5.js.gz"
+  },
+  "/_build/assets/PosterGrid-CJFNSx0A.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"1ec-yspw6EkXcW0ETOac4v4a1k5sA3I\"",
+    "mtime": "2026-07-21T20:11:57.970Z",
+    "size": 492,
+    "path": "../public/_build/assets/PosterGrid-CJFNSx0A.js"
   },
   "/_build/assets/_id_-BNSRxVfn.js": {
     "type": "text/javascript; charset=utf-8",
     "encoding": null,
     "etag": "\"aad-b1N+qReAyiTZdYKIFmdZSOeC/8I\"",
-    "mtime": "2026-07-21T17:02:08.262Z",
+    "mtime": "2026-07-21T20:11:57.969Z",
     "size": 2733,
     "path": "../public/_build/assets/_id_-BNSRxVfn.js"
   },
@@ -4796,7 +4810,7 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": "br",
     "etag": "\"4a4-qEJkjP3t//mxcxyB1mYIgZIqmS0\"",
-    "mtime": "2026-07-21T17:02:08.273Z",
+    "mtime": "2026-07-21T20:11:57.986Z",
     "size": 1188,
     "path": "../public/_build/assets/_id_-BNSRxVfn.js.br"
   },
@@ -4804,7 +4818,7 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": "gzip",
     "etag": "\"53b-PQwT21qvCTVbhNSjbLeIrbunqLY\"",
-    "mtime": "2026-07-21T17:02:08.273Z",
+    "mtime": "2026-07-21T20:11:57.986Z",
     "size": 1339,
     "path": "../public/_build/assets/_id_-BNSRxVfn.js.gz"
   },
@@ -4812,7 +4826,7 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": null,
     "etag": "\"4fe-253lZGXEhaQOe3Kx1KuiieJuoPU\"",
-    "mtime": "2026-07-21T17:02:08.261Z",
+    "mtime": "2026-07-21T20:11:57.969Z",
     "size": 1278,
     "path": "../public/_build/assets/_id_-i3zPRHUm.js"
   },
@@ -4820,23 +4834,15 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": "br",
     "etag": "\"25f-sue+NpNjtg7ZwUzvS1enxONhWJE\"",
-    "mtime": "2026-07-21T17:02:08.273Z",
+    "mtime": "2026-07-21T20:11:57.986Z",
     "size": 607,
     "path": "../public/_build/assets/_id_-i3zPRHUm.js.br"
-  },
-  "/_build/assets/_id_-i3zPRHUm.js.gz": {
-    "type": "text/javascript; charset=utf-8",
-    "encoding": "gzip",
-    "etag": "\"2bf-1n9dsN0cDoSZttjr4Ujin7BdgU8\"",
-    "mtime": "2026-07-21T17:02:08.273Z",
-    "size": 703,
-    "path": "../public/_build/assets/_id_-i3zPRHUm.js.gz"
   },
   "/_build/assets/_id_-nyVIJ77p.js": {
     "type": "text/javascript; charset=utf-8",
     "encoding": null,
     "etag": "\"255e-rAfFY2AUNoh0FXy5ApNNJmZoUSs\"",
-    "mtime": "2026-07-21T17:02:08.262Z",
+    "mtime": "2026-07-21T20:11:57.970Z",
     "size": 9566,
     "path": "../public/_build/assets/_id_-nyVIJ77p.js"
   },
@@ -4844,53 +4850,92 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": "br",
     "etag": "\"d81-y2omftRVm87kf8iu/hP4W8ihmB0\"",
-    "mtime": "2026-07-21T17:02:08.280Z",
+    "mtime": "2026-07-21T20:11:57.995Z",
     "size": 3457,
     "path": "../public/_build/assets/_id_-nyVIJ77p.js.br"
+  },
+  "/_build/assets/_id_-i3zPRHUm.js.gz": {
+    "type": "text/javascript; charset=utf-8",
+    "encoding": "gzip",
+    "etag": "\"2bf-1n9dsN0cDoSZttjr4Ujin7BdgU8\"",
+    "mtime": "2026-07-21T20:11:57.986Z",
+    "size": 703,
+    "path": "../public/_build/assets/_id_-i3zPRHUm.js.gz"
   },
   "/_build/assets/_id_-nyVIJ77p.js.gz": {
     "type": "text/javascript; charset=utf-8",
     "encoding": "gzip",
     "etag": "\"f84-pAw8MwDgaCHjm1DVkDwS322/lNc\"",
-    "mtime": "2026-07-21T17:02:08.273Z",
+    "mtime": "2026-07-21T20:11:57.986Z",
     "size": 3972,
     "path": "../public/_build/assets/_id_-nyVIJ77p.js.gz"
   },
   "/_build/assets/_key_-BChodniO.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"3ba-N/wWPGmzd+pepHiB/NyyFf60G/g\"",
-    "mtime": "2026-07-21T17:02:08.262Z",
+    "mtime": "2026-07-21T20:11:57.970Z",
     "size": 954,
     "path": "../public/_build/assets/_key_-BChodniO.js"
   },
-  "/_build/assets/auth-CwtiEGe-.js": {
+  "/_build/assets/appversion-C62tv9nw.js": {
     "type": "text/javascript; charset=utf-8",
-    "encoding": null,
-    "etag": "\"a33-RNPvHMg/M22eqEtfybyTVvlwx/w\"",
-    "mtime": "2026-07-21T17:02:08.262Z",
-    "size": 2611,
-    "path": "../public/_build/assets/auth-CwtiEGe-.js"
+    "etag": "\"1b1-8A9mGcOIOb8V3TmM59KxahJRCqE\"",
+    "mtime": "2026-07-21T20:11:57.970Z",
+    "size": 433,
+    "path": "../public/_build/assets/appversion-C62tv9nw.js"
   },
   "/_build/assets/auth-CwtiEGe-.js.br": {
     "type": "text/javascript; charset=utf-8",
     "encoding": "br",
     "etag": "\"4c1-YC/FTxYdQ0TAC3xXrh65m+30UIc\"",
-    "mtime": "2026-07-21T17:02:08.273Z",
+    "mtime": "2026-07-21T20:11:57.995Z",
     "size": 1217,
     "path": "../public/_build/assets/auth-CwtiEGe-.js.br"
+  },
+  "/_build/assets/auth-CwtiEGe-.js": {
+    "type": "text/javascript; charset=utf-8",
+    "encoding": null,
+    "etag": "\"a33-RNPvHMg/M22eqEtfybyTVvlwx/w\"",
+    "mtime": "2026-07-21T20:11:57.970Z",
+    "size": 2611,
+    "path": "../public/_build/assets/auth-CwtiEGe-.js"
   },
   "/_build/assets/auth-CwtiEGe-.js.gz": {
     "type": "text/javascript; charset=utf-8",
     "encoding": "gzip",
     "etag": "\"550-rX7Ebp6vMcyzsdcLL3w7oG0Jl+w\"",
-    "mtime": "2026-07-21T17:02:08.273Z",
+    "mtime": "2026-07-21T20:11:57.987Z",
     "size": 1360,
     "path": "../public/_build/assets/auth-CwtiEGe-.js.gz"
+  },
+  "/_build/assets/browser-CjSdxGTc.js": {
+    "type": "text/javascript; charset=utf-8",
+    "encoding": null,
+    "etag": "\"5e12-Y8Qs0Cr+2WtXx0XzqACIYw5+qK8\"",
+    "mtime": "2026-07-21T20:11:57.970Z",
+    "size": 24082,
+    "path": "../public/_build/assets/browser-CjSdxGTc.js"
+  },
+  "/_build/assets/browser-CjSdxGTc.js.br": {
+    "type": "text/javascript; charset=utf-8",
+    "encoding": "br",
+    "etag": "\"207d-fa/1PGzKI7OmCfjyKU973ivrERU\"",
+    "mtime": "2026-07-21T20:11:58.007Z",
+    "size": 8317,
+    "path": "../public/_build/assets/browser-CjSdxGTc.js.br"
+  },
+  "/_build/assets/browser-CjSdxGTc.js.gz": {
+    "type": "text/javascript; charset=utf-8",
+    "encoding": "gzip",
+    "etag": "\"24f1-NeRHVQ319klb2xvhQOIT5xc+ySI\"",
+    "mtime": "2026-07-21T20:11:57.988Z",
+    "size": 9457,
+    "path": "../public/_build/assets/browser-CjSdxGTc.js.gz"
   },
   "/_build/assets/callback-CynM83Nw.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"174-Z8kFWak7CQ0O4J+BeVpbFrlPmyo\"",
-    "mtime": "2026-07-21T17:02:08.262Z",
+    "mtime": "2026-07-21T20:11:57.970Z",
     "size": 372,
     "path": "../public/_build/assets/callback-CynM83Nw.js"
   },
@@ -4898,7 +4943,7 @@ const assets = {
     "type": "text/css; charset=utf-8",
     "encoding": null,
     "etag": "\"1fd7-KCSx32Q3dJTgQF5v/mIrQlq9HC0\"",
-    "mtime": "2026-07-21T17:02:08.262Z",
+    "mtime": "2026-07-21T20:11:57.970Z",
     "size": 8151,
     "path": "../public/_build/assets/client-BojkQ0yL.css"
   },
@@ -4906,7 +4951,7 @@ const assets = {
     "type": "text/css; charset=utf-8",
     "encoding": "br",
     "etag": "\"8aa-EZygXJjIxZXfhh13PDS14ryI+Lc\"",
-    "mtime": "2026-07-21T17:02:08.282Z",
+    "mtime": "2026-07-21T20:11:57.997Z",
     "size": 2218,
     "path": "../public/_build/assets/client-BojkQ0yL.css.br"
   },
@@ -4914,39 +4959,39 @@ const assets = {
     "type": "text/css; charset=utf-8",
     "encoding": "gzip",
     "etag": "\"9fb-OiGn4z1S36NMplvxAshWIRg5idY\"",
-    "mtime": "2026-07-21T17:02:08.273Z",
+    "mtime": "2026-07-21T20:11:57.995Z",
     "size": 2555,
     "path": "../public/_build/assets/client-BojkQ0yL.css.gz"
   },
-  "/_build/assets/client-g3VdNY-c.js": {
+  "/_build/assets/client-DiKG4G_t.js": {
     "type": "text/javascript; charset=utf-8",
     "encoding": null,
-    "etag": "\"4a70-vonkTTwaThgqtfToINZP2HA9WkY\"",
-    "mtime": "2026-07-21T17:02:08.262Z",
-    "size": 19056,
-    "path": "../public/_build/assets/client-g3VdNY-c.js"
+    "etag": "\"4d85-KbZ5m/dKeYstsex5gi246k2VGXo\"",
+    "mtime": "2026-07-21T20:11:57.970Z",
+    "size": 19845,
+    "path": "../public/_build/assets/client-DiKG4G_t.js"
   },
-  "/_build/assets/client-g3VdNY-c.js.br": {
+  "/_build/assets/client-DiKG4G_t.js.br": {
     "type": "text/javascript; charset=utf-8",
     "encoding": "br",
-    "etag": "\"181e-zMWNLSOuFLFtp3GksZPc8jE1PD0\"",
-    "mtime": "2026-07-21T17:02:08.288Z",
-    "size": 6174,
-    "path": "../public/_build/assets/client-g3VdNY-c.js.br"
+    "etag": "\"18be-nao0pND1V7xGwUQouwJck51OoxQ\"",
+    "mtime": "2026-07-21T20:11:58.003Z",
+    "size": 6334,
+    "path": "../public/_build/assets/client-DiKG4G_t.js.br"
   },
-  "/_build/assets/client-g3VdNY-c.js.gz": {
+  "/_build/assets/client-DiKG4G_t.js.gz": {
     "type": "text/javascript; charset=utf-8",
     "encoding": "gzip",
-    "etag": "\"1ac3-IxdBhuKrg9WX18JMncSdni+VPPo\"",
-    "mtime": "2026-07-21T17:02:08.278Z",
-    "size": 6851,
-    "path": "../public/_build/assets/client-g3VdNY-c.js.gz"
+    "etag": "\"1b95-bZi+NBLSf+0Ce5IoG8OMwJepsI8\"",
+    "mtime": "2026-07-21T20:11:57.995Z",
+    "size": 7061,
+    "path": "../public/_build/assets/client-DiKG4G_t.js.gz"
   },
   "/_build/assets/continue-CBlqRWcl.js": {
     "type": "text/javascript; charset=utf-8",
     "encoding": null,
     "etag": "\"45f-KxNZ8wMfSW9ViW1Q4Ay3dWBDFTA\"",
-    "mtime": "2026-07-21T17:02:08.262Z",
+    "mtime": "2026-07-21T20:11:57.970Z",
     "size": 1119,
     "path": "../public/_build/assets/continue-CBlqRWcl.js"
   },
@@ -4954,7 +4999,7 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": "br",
     "etag": "\"229-uERyldMpyerYUvupNoXoWvQQhDI\"",
-    "mtime": "2026-07-21T17:02:08.280Z",
+    "mtime": "2026-07-21T20:11:57.995Z",
     "size": 553,
     "path": "../public/_build/assets/continue-CBlqRWcl.js.br"
   },
@@ -4962,7 +5007,7 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": "gzip",
     "etag": "\"27e-B7TyeW7oGLYM22uzyNFQuavXxIg\"",
-    "mtime": "2026-07-21T17:02:08.280Z",
+    "mtime": "2026-07-21T20:11:57.995Z",
     "size": 638,
     "path": "../public/_build/assets/continue-CBlqRWcl.js.gz"
   },
@@ -4970,7 +5015,7 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": null,
     "etag": "\"662-+va6UKQqX8wweY1dbMnvinrqdTE\"",
-    "mtime": "2026-07-21T17:02:08.262Z",
+    "mtime": "2026-07-21T20:11:57.970Z",
     "size": 1634,
     "path": "../public/_build/assets/home-Bdu3c_9E.js"
   },
@@ -4978,23 +5023,39 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": "br",
     "etag": "\"2e7-EXOrfd6qbOcMn22peoQrrcWkxtw\"",
-    "mtime": "2026-07-21T17:02:08.282Z",
+    "mtime": "2026-07-21T20:11:58.003Z",
     "size": 743,
     "path": "../public/_build/assets/home-Bdu3c_9E.js.br"
+  },
+  "/_build/assets/hls-Bn6EWr6S.js.br": {
+    "type": "text/javascript; charset=utf-8",
+    "encoding": "br",
+    "etag": "\"2074a-K1WQT9oWVExkuZnDmKE0M4dQ3OI\"",
+    "mtime": "2026-07-21T20:11:58.486Z",
+    "size": 132938,
+    "path": "../public/_build/assets/hls-Bn6EWr6S.js.br"
   },
   "/_build/assets/home-Bdu3c_9E.js.gz": {
     "type": "text/javascript; charset=utf-8",
     "encoding": "gzip",
     "etag": "\"351-wa79vcDHTn08DBSqysylPl8Ge6A\"",
-    "mtime": "2026-07-21T17:02:08.282Z",
+    "mtime": "2026-07-21T20:11:58.003Z",
     "size": 849,
     "path": "../public/_build/assets/home-Bdu3c_9E.js.gz"
+  },
+  "/_build/assets/hls-Bn6EWr6S.js.gz": {
+    "type": "text/javascript; charset=utf-8",
+    "encoding": "gzip",
+    "etag": "\"27742-NUPYopBPYSD23sQBbAKp8axOWyU\"",
+    "mtime": "2026-07-21T20:11:58.010Z",
+    "size": 161602,
+    "path": "../public/_build/assets/hls-Bn6EWr6S.js.gz"
   },
   "/_build/assets/index-D3JdWPJ4.js": {
     "type": "text/javascript; charset=utf-8",
     "encoding": null,
     "etag": "\"a41-3KrU+4l+P4yo3m1yEoqhHU8W0pc\"",
-    "mtime": "2026-07-21T17:02:08.263Z",
+    "mtime": "2026-07-21T20:11:57.970Z",
     "size": 2625,
     "path": "../public/_build/assets/index-D3JdWPJ4.js"
   },
@@ -5002,45 +5063,29 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": "br",
     "etag": "\"46a-3Kqkvi1Di1msDigefkIvGiSs4vw\"",
-    "mtime": "2026-07-21T17:02:08.282Z",
+    "mtime": "2026-07-21T20:11:58.003Z",
     "size": 1130,
     "path": "../public/_build/assets/index-D3JdWPJ4.js.br"
-  },
-  "/_build/assets/hls-Bn6EWr6S.js.br": {
-    "type": "text/javascript; charset=utf-8",
-    "encoding": "br",
-    "etag": "\"2074a-K1WQT9oWVExkuZnDmKE0M4dQ3OI\"",
-    "mtime": "2026-07-21T17:02:08.792Z",
-    "size": 132938,
-    "path": "../public/_build/assets/hls-Bn6EWr6S.js.br"
-  },
-  "/_build/assets/login-D2NqzxpP.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"1c7-7d1mAi7WoXMMmHSQLUsXWrjkV9s\"",
-    "mtime": "2026-07-21T17:02:08.262Z",
-    "size": 455,
-    "path": "../public/_build/assets/login-D2NqzxpP.js"
   },
   "/_build/assets/index-D3JdWPJ4.js.gz": {
     "type": "text/javascript; charset=utf-8",
     "encoding": "gzip",
     "etag": "\"516-rsIqIFqZS+px5LuG1Ef5vOb3Jew\"",
-    "mtime": "2026-07-21T17:02:08.282Z",
+    "mtime": "2026-07-21T20:11:58.003Z",
     "size": 1302,
     "path": "../public/_build/assets/index-D3JdWPJ4.js.gz"
   },
-  "/_build/assets/hls-Bn6EWr6S.js.gz": {
+  "/_build/assets/login-D2NqzxpP.js": {
     "type": "text/javascript; charset=utf-8",
-    "encoding": "gzip",
-    "etag": "\"27742-NUPYopBPYSD23sQBbAKp8axOWyU\"",
-    "mtime": "2026-07-21T17:02:08.310Z",
-    "size": 161602,
-    "path": "../public/_build/assets/hls-Bn6EWr6S.js.gz"
+    "etag": "\"1c7-7d1mAi7WoXMMmHSQLUsXWrjkV9s\"",
+    "mtime": "2026-07-21T20:11:57.970Z",
+    "size": 455,
+    "path": "../public/_build/assets/login-D2NqzxpP.js"
   },
   "/_build/assets/preload-helper-CM3UJVvY.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"3e0-Q0Bp0QjKFMyDOuO3rqIIPlfnrHI\"",
-    "mtime": "2026-07-21T17:02:08.263Z",
+    "mtime": "2026-07-21T20:11:57.970Z",
     "size": 992,
     "path": "../public/_build/assets/preload-helper-CM3UJVvY.js"
   },
@@ -5048,7 +5093,7 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": null,
     "etag": "\"1c33-t8Ab4XE/n945oxp4AN1gx88dBSM\"",
-    "mtime": "2026-07-21T17:02:08.263Z",
+    "mtime": "2026-07-21T20:11:57.970Z",
     "size": 7219,
     "path": "../public/_build/assets/routing-C79xCL_B.js"
   },
@@ -5056,7 +5101,7 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": "br",
     "etag": "\"c21-jHxAFCwNC7J6Rft5MamPa8PbLmk\"",
-    "mtime": "2026-07-21T17:02:08.289Z",
+    "mtime": "2026-07-21T20:11:58.009Z",
     "size": 3105,
     "path": "../public/_build/assets/routing-C79xCL_B.js.br"
   },
@@ -5064,7 +5109,7 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": null,
     "etag": "\"7fb3f-mzIU5chdoUIg5177fNyRmbNsyGY\"",
-    "mtime": "2026-07-21T17:02:08.263Z",
+    "mtime": "2026-07-21T20:11:57.970Z",
     "size": 523071,
     "path": "../public/_build/assets/hls-Bn6EWr6S.js"
   },
@@ -5072,103 +5117,127 @@ const assets = {
     "type": "text/javascript; charset=utf-8",
     "encoding": "gzip",
     "etag": "\"d4a-BeSbJ2uKKl51fUIlIQ/s200va1Y\"",
-    "mtime": "2026-07-21T17:02:08.286Z",
+    "mtime": "2026-07-21T20:11:58.008Z",
     "size": 3402,
     "path": "../public/_build/assets/routing-C79xCL_B.js.gz"
   },
-  "/_build/assets/search-DhhRrfE2.js": {
+  "/_build/assets/search-soUzrq6_.js": {
     "type": "text/javascript; charset=utf-8",
     "encoding": null,
-    "etag": "\"b88-31i12IXmQNd+5CtGESmaryMjqCQ\"",
-    "mtime": "2026-07-21T17:02:08.262Z",
-    "size": 2952,
-    "path": "../public/_build/assets/search-DhhRrfE2.js"
+    "etag": "\"cf2-V6EfXz6cSG4Kbz9sQywlVmGw+3g\"",
+    "mtime": "2026-07-21T20:11:57.970Z",
+    "size": 3314,
+    "path": "../public/_build/assets/search-soUzrq6_.js"
   },
-  "/_build/assets/search-DhhRrfE2.js.br": {
+  "/_build/assets/search-soUzrq6_.js.br": {
     "type": "text/javascript; charset=utf-8",
     "encoding": "br",
-    "etag": "\"4ed-MjAUpR+tkkz/Dj1i0pO9BmTGmMA\"",
-    "mtime": "2026-07-21T17:02:08.287Z",
-    "size": 1261,
-    "path": "../public/_build/assets/search-DhhRrfE2.js.br"
+    "etag": "\"56f-sFxxlrv0jJLh6Qn1qG98Us5NCxY\"",
+    "mtime": "2026-07-21T20:11:58.008Z",
+    "size": 1391,
+    "path": "../public/_build/assets/search-soUzrq6_.js.br"
   },
-  "/_build/assets/search-DhhRrfE2.js.gz": {
+  "/_build/assets/search-soUzrq6_.js.gz": {
     "type": "text/javascript; charset=utf-8",
     "encoding": "gzip",
-    "etag": "\"5d1-tfLdQtCtEV/qiqcPEaeBMGAAC9M\"",
-    "mtime": "2026-07-21T17:02:08.287Z",
-    "size": 1489,
-    "path": "../public/_build/assets/search-DhhRrfE2.js.gz"
+    "etag": "\"635-e94agXcCOFc+M6c2IPr/cngYLFQ\"",
+    "mtime": "2026-07-21T20:11:58.007Z",
+    "size": 1589,
+    "path": "../public/_build/assets/search-soUzrq6_.js.gz"
   },
   "/_build/assets/session-Bh7Sqjdq.js": {
     "type": "text/javascript; charset=utf-8",
     "encoding": null,
     "etag": "\"998-aUVXovbOQw04p+R+/0OQNaFJmNw\"",
-    "mtime": "2026-07-21T17:02:08.262Z",
+    "mtime": "2026-07-21T20:11:57.970Z",
     "size": 2456,
     "path": "../public/_build/assets/session-Bh7Sqjdq.js"
-  },
-  "/_build/assets/session-Bh7Sqjdq.js.gz": {
-    "type": "text/javascript; charset=utf-8",
-    "encoding": "gzip",
-    "etag": "\"4dc-7iXVYYKlZPBlwpgdlPopiwRXbbI\"",
-    "mtime": "2026-07-21T17:02:08.289Z",
-    "size": 1244,
-    "path": "../public/_build/assets/session-Bh7Sqjdq.js.gz"
   },
   "/_build/assets/session-Bh7Sqjdq.js.br": {
     "type": "text/javascript; charset=utf-8",
     "encoding": "br",
     "etag": "\"464-pOybsNyrlhEyEJDhTeFdlYR7xuI\"",
-    "mtime": "2026-07-21T17:02:08.306Z",
+    "mtime": "2026-07-21T20:11:58.008Z",
     "size": 1124,
     "path": "../public/_build/assets/session-Bh7Sqjdq.js.br"
   },
-  "/_build/assets/tv-7pZSA4Nz.js": {
-    "type": "text/javascript; charset=utf-8",
-    "encoding": null,
-    "etag": "\"6a2a-F+bIuMim8O2F163RpkU1rarRceg\"",
-    "mtime": "2026-07-21T17:02:08.263Z",
-    "size": 27178,
-    "path": "../public/_build/assets/tv-7pZSA4Nz.js"
-  },
-  "/_build/assets/tv-7pZSA4Nz.js.br": {
-    "type": "text/javascript; charset=utf-8",
-    "encoding": "br",
-    "etag": "\"25b6-gWYo7e1t3uwSIHoeBsxsPC6kaLA\"",
-    "mtime": "2026-07-21T17:02:08.310Z",
-    "size": 9654,
-    "path": "../public/_build/assets/tv-7pZSA4Nz.js.br"
-  },
-  "/_build/assets/tv-7pZSA4Nz.js.gz": {
+  "/_build/assets/session-Bh7Sqjdq.js.gz": {
     "type": "text/javascript; charset=utf-8",
     "encoding": "gzip",
-    "etag": "\"2ad6-1qokpyabFzpwcy0ACNykVnEejzc\"",
-    "mtime": "2026-07-21T17:02:08.306Z",
-    "size": 10966,
-    "path": "../public/_build/assets/tv-7pZSA4Nz.js.gz"
+    "etag": "\"4dc-7iXVYYKlZPBlwpgdlPopiwRXbbI\"",
+    "mtime": "2026-07-21T20:11:58.008Z",
+    "size": 1244,
+    "path": "../public/_build/assets/session-Bh7Sqjdq.js.gz"
   },
-  "/_build/assets/web-C1rhI-gZ.js": {
+  "/_build/assets/tv-Cv2T59-u.js": {
     "type": "text/javascript; charset=utf-8",
     "encoding": null,
-    "etag": "\"60b6-sydlwx3H65+5UTptVCJky3gTqQk\"",
-    "mtime": "2026-07-21T17:02:08.262Z",
-    "size": 24758,
-    "path": "../public/_build/assets/web-C1rhI-gZ.js"
+    "etag": "\"c14-XEEXLVFdS7Asg0XP9ydeaRPg6R0\"",
+    "mtime": "2026-07-21T20:11:57.970Z",
+    "size": 3092,
+    "path": "../public/_build/assets/tv-Cv2T59-u.js"
+  },
+  "/_build/assets/tv-Cv2T59-u.js.br": {
+    "type": "text/javascript; charset=utf-8",
+    "encoding": "br",
+    "etag": "\"57f-+7zcXofdHf/2172F3rc9jQnI7ww\"",
+    "mtime": "2026-07-21T20:11:58.009Z",
+    "size": 1407,
+    "path": "../public/_build/assets/tv-Cv2T59-u.js.br"
+  },
+  "/_build/assets/tv-Cv2T59-u.js.gz": {
+    "type": "text/javascript; charset=utf-8",
+    "encoding": "gzip",
+    "etag": "\"65b-8q0bE3LzVpEmf2lQSDtAD3PuhBs\"",
+    "mtime": "2026-07-21T20:11:58.008Z",
+    "size": 1627,
+    "path": "../public/_build/assets/tv-Cv2T59-u.js.gz"
+  },
+  "/_build/assets/update-DygZznL7.js": {
+    "type": "text/javascript; charset=utf-8",
+    "encoding": null,
+    "etag": "\"46d-0peMrAn/uCF+AMy7LlQRMR6mBqg\"",
+    "mtime": "2026-07-21T20:11:57.970Z",
+    "size": 1133,
+    "path": "../public/_build/assets/update-DygZznL7.js"
+  },
+  "/_build/assets/update-DygZznL7.js.br": {
+    "type": "text/javascript; charset=utf-8",
+    "encoding": "br",
+    "etag": "\"250-FzwHfkKLnPlZaGSKIl3UBAA9lM8\"",
+    "mtime": "2026-07-21T20:11:58.010Z",
+    "size": 592,
+    "path": "../public/_build/assets/update-DygZznL7.js.br"
+  },
+  "/_build/assets/update-DygZznL7.js.gz": {
+    "type": "text/javascript; charset=utf-8",
+    "encoding": "gzip",
+    "etag": "\"2c8-TbiOvGMGCTyHNqW9fQAmeRWu70s\"",
+    "mtime": "2026-07-21T20:11:58.010Z",
+    "size": 712,
+    "path": "../public/_build/assets/update-DygZznL7.js.gz"
   },
   "/_build/assets/web-C1rhI-gZ.js.br": {
     "type": "text/javascript; charset=utf-8",
     "encoding": "br",
     "etag": "\"2205-fxSiVoE0gvedYRX8D763+WAZFyk\"",
-    "mtime": "2026-07-21T17:02:08.309Z",
+    "mtime": "2026-07-21T20:11:58.025Z",
     "size": 8709,
     "path": "../public/_build/assets/web-C1rhI-gZ.js.br"
+  },
+  "/_build/assets/web-C1rhI-gZ.js": {
+    "type": "text/javascript; charset=utf-8",
+    "encoding": null,
+    "etag": "\"60b6-sydlwx3H65+5UTptVCJky3gTqQk\"",
+    "mtime": "2026-07-21T20:11:57.970Z",
+    "size": 24758,
+    "path": "../public/_build/assets/web-C1rhI-gZ.js"
   },
   "/_build/assets/web-C1rhI-gZ.js.gz": {
     "type": "text/javascript; charset=utf-8",
     "encoding": "gzip",
     "etag": "\"255e-qIPtgOb+5U3wYtdDGO2hrPKIlEs\"",
-    "mtime": "2026-07-21T17:02:08.306Z",
+    "mtime": "2026-07-21T20:11:58.010Z",
     "size": 9566,
     "path": "../public/_build/assets/web-C1rhI-gZ.js.gz"
   }
@@ -6562,19 +6631,19 @@ function Ze() {
 function Qe() {
   return Ze().use().event;
 }
-const P$1 = "Invariant Violation", { setPrototypeOf: Ye = function(e, r) {
+const w = "Invariant Violation", { setPrototypeOf: Ye = function(e, r) {
   return e.__proto__ = r, e;
 } } = Object;
-let $$1 = class $ extends Error {
-  constructor(r = P$1) {
-    super(typeof r == "number" ? `${P$1}: ${r} (see https://github.com/apollographql/invariant-packages)` : r);
+let x$1 = class x extends Error {
+  constructor(r = w) {
+    super(typeof r == "number" ? `${w}: ${r} (see https://github.com/apollographql/invariant-packages)` : r);
     __publicField$1(this, "framesToPop", 1);
-    __publicField$1(this, "name", P$1);
-    Ye(this, $.prototype);
+    __publicField$1(this, "name", w);
+    Ye(this, x.prototype);
   }
 };
 function et(e, r) {
-  if (!e) throw new $$1(r);
+  if (!e) throw new x$1(r);
 }
 const b$1 = "solidFetchEvent";
 function tt(e) {
@@ -6645,7 +6714,7 @@ function ot(e) {
     S$1(e, T$1(e), r);
   }, headers: new nt(e) };
 }
-const _ = [{ page: true, path: "/callback", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/callback.tsx" }, { page: true, path: "/continue", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/continue.tsx" }, { page: true, path: "/home", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/home.tsx" }, { page: true, path: "/", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/index.tsx" }, { page: true, path: "/login", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/login.tsx" }, { page: true, path: "/search", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/search.tsx" }, { page: true, path: "/tv", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/tv.tsx" }, { page: false, $POST: { src: "src/routes/api/query.ts?pick=POST", build: () => import('../build/query.mjs'), import: () => import('../build/query.mjs') }, path: "/api/query", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/api/query.ts" }, { page: true, path: "/category/:key", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/category/[key].tsx" }, { page: true, path: "/series/:id", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/series/[id].tsx" }, { page: true, path: "/title/:id", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/title/[id].tsx" }, { page: false, $GET: { src: "src/routes/video/[...path].ts?pick=GET", build: () => import('../build/_...path_.mjs'), import: () => import('../build/_...path_.mjs') }, $HEAD: { src: "src/routes/video/[...path].ts?pick=GET", build: () => import('../build/_...path_.mjs'), import: () => import('../build/_...path_.mjs') }, path: "/video/*path", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/video/[...path].ts" }, { page: true, path: "/watch/:id", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/watch/[id].tsx" }, { page: false, $POST: { src: "src/routes/api/tv/claim.ts?pick=POST", build: () => import('../build/claim.mjs'), import: () => import('../build/claim.mjs') }, path: "/api/tv/claim", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/api/tv/claim.ts" }], at = it(_.filter((e) => e.page));
+const _ = [{ page: true, path: "/callback", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/callback.tsx" }, { page: true, path: "/continue", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/continue.tsx" }, { page: true, path: "/home", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/home.tsx" }, { page: true, path: "/", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/index.tsx" }, { page: true, path: "/login", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/login.tsx" }, { page: true, path: "/search", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/search.tsx" }, { page: true, path: "/tv", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/tv.tsx" }, { page: true, path: "/update", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/update.tsx" }, { page: false, $POST: { src: "src/routes/api/query.ts?pick=POST", build: () => import('../build/query.mjs'), import: () => import('../build/query.mjs') }, path: "/api/query", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/api/query.ts" }, { page: true, path: "/category/:key", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/category/[key].tsx" }, { page: true, path: "/series/:id", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/series/[id].tsx" }, { page: true, path: "/title/:id", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/title/[id].tsx" }, { page: false, $GET: { src: "src/routes/video/[...path].ts?pick=GET", build: () => import('../build/_...path_.mjs'), import: () => import('../build/_...path_.mjs') }, $HEAD: { src: "src/routes/video/[...path].ts?pick=GET", build: () => import('../build/_...path_.mjs'), import: () => import('../build/_...path_.mjs') }, path: "/video/*path", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/video/[...path].ts" }, { page: true, path: "/watch/:id", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/watch/[id].tsx" }, { page: false, $POST: { src: "src/routes/api/tv/claim.ts?pick=POST", build: () => import('../build/claim.mjs'), import: () => import('../build/claim.mjs') }, path: "/api/tv/claim", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/api/tv/claim.ts" }], at = it(_.filter((e) => e.page));
 function it(e) {
   function r(t, n, o, a) {
     const i = Object.values(t).find((c) => o.startsWith(c.id + "/"));
@@ -6687,7 +6756,7 @@ function N() {
   return at.map(e);
 }
 let k;
-const It = isServer ? () => getRequestEvent().routes : () => k || (k = N());
+const Ct = isServer ? () => getRequestEvent().routes : () => k || (k = N());
 function ht(e) {
   const r = Je(e.nativeEvent, "flash");
   if (r) try {
@@ -6709,14 +6778,14 @@ const mt = /* @__PURE__ */ new Set([301, 302, 303, 307, 308]);
 function yt(e) {
   return e.status && mt.has(e.status) ? e.status : 302;
 }
-const Rt = {}, x$1 = [AbortSignalPlugin, CustomEventPlugin, DOMExceptionPlugin, EventPlugin, FormDataPlugin, HeadersPlugin, ReadableStreamPlugin, RequestPlugin, ResponsePlugin, URLSearchParamsPlugin, URLPlugin], St = 64, M = Feature.RegExp;
+const Rt = {}, $$1 = [AbortSignalPlugin, CustomEventPlugin, DOMExceptionPlugin, EventPlugin, FormDataPlugin, HeadersPlugin, ReadableStreamPlugin, RequestPlugin, ResponsePlugin, URLSearchParamsPlugin, URLPlugin], St = 64, M = Feature.RegExp;
 function W(e) {
   const r = new TextEncoder().encode(e), t = r.length, n = t.toString(16), o = "00000000".substring(0, 8 - n.length) + n, a = new TextEncoder().encode(`;0x${o};`), i = new Uint8Array(12 + t);
   return i.set(a), i.set(r, 12), i;
 }
 function H(e, r) {
   return new ReadableStream({ start(t) {
-    crossSerializeStream(r, { scopeId: e, plugins: x$1, onSerialize(n, o) {
+    crossSerializeStream(r, { scopeId: e, plugins: $$1, onSerialize(n, o) {
       t.enqueue(W(o ? `(${getCrossReferenceHeader(e)},${n})` : n));
     }, onDone() {
       t.close();
@@ -6725,9 +6794,9 @@ function H(e, r) {
     } });
   } });
 }
-function wt(e) {
+function Pt(e) {
   return new ReadableStream({ start(r) {
-    toCrossJSONStream(e, { disabledFeatures: M, depthLimit: St, plugins: x$1, onParse(t) {
+    toCrossJSONStream(e, { disabledFeatures: M, depthLimit: St, plugins: $$1, onParse(t) {
       r.enqueue(W(JSON.stringify(t)));
     }, onDone() {
       r.close();
@@ -6736,10 +6805,10 @@ function wt(e) {
     } });
   } });
 }
-async function C(e) {
-  return fromJSON(JSON.parse(e), { plugins: x$1, disabledFeatures: M });
+async function I$1(e) {
+  return fromJSON(JSON.parse(e), { plugins: $$1, disabledFeatures: M });
 }
-async function Pt(e) {
+async function wt(e) {
   const r = st(e), t = r.request, n = t.headers.get("X-Server-Id"), o = t.headers.get("X-Server-Instance"), a = t.headers.has("X-Single-Flight"), i = new URL(t.url);
   let c, p;
   if (n) et(typeof n == "string", "Invalid server function"), [c, p] = decodeURIComponent(n).split("#");
@@ -6753,13 +6822,13 @@ async function Pt(e) {
   if (!o || e.method === "GET") {
     const s = i.searchParams.get("args");
     if (s) {
-      const d = await C(s);
+      const d = await I$1(s);
       for (const m of d) f.push(m);
     }
   }
   if (e.method === "POST") {
-    const s = t.headers.get("content-type"), d = e.node.req, m = d instanceof ReadableStream, z = d.body instanceof ReadableStream, J = m && d.locked || z && d.body.locked, X = m ? d : d.body, w = J ? t : new Request(t, { ...t, body: X });
-    t.headers.get("x-serialized") ? f = await C(await w.text()) : (s == null ? void 0 : s.startsWith("multipart/form-data")) || (s == null ? void 0 : s.startsWith("application/x-www-form-urlencoded")) ? f.push(await w.formData()) : (s == null ? void 0 : s.startsWith("application/json")) && (f = await w.json());
+    const s = t.headers.get("content-type"), d = e.node.req, m = d instanceof ReadableStream, z = d.body instanceof ReadableStream, J = m && d.locked || z && d.body.locked, X = m ? d : d.body, P = J ? t : new Request(t, { ...t, body: X });
+    t.headers.get("x-serialized") ? f = await I$1(await P.text()) : (s == null ? void 0 : s.startsWith("multipart/form-data")) || (s == null ? void 0 : s.startsWith("application/x-www-form-urlencoded")) ? f.push(await P.formData()) : (s == null ? void 0 : s.startsWith("application/json")) && (f = await P.json());
   }
   try {
     let s = await provideRequestEvent(r, async () => (sharedConfig.context = { event: r }, r.locals.serverFunctionMeta = { id: c + "#" + p }, B(...f)));
@@ -6767,19 +6836,19 @@ async function Pt(e) {
       if (s.headers && s.headers.has("X-Content-Raw")) return s;
       o && (s.headers && q$1(e, s.headers), s.status && (s.status < 300 || s.status >= 400) && S$1(e, s.status), s.customBody ? s = await s.customBody() : s.body == null && (s = null));
     }
-    if (!o) return I$1(s, t, f);
+    if (!o) return C(s, t, f);
     return h(e, "x-serialized", "true"), h(e, "content-type", "text/javascript"), H(o, s);
-    return wt(s);
+    return Pt(s);
   } catch (s) {
     if (s instanceof Response) a && o && (s = await U(r, s)), s.headers && q$1(e, s.headers), s.status && (!o || s.status < 300 || s.status >= 400) && S$1(e, s.status), s.customBody ? s = s.customBody() : s.body == null && (s = null), h(e, "X-Error", "true");
     else if (o) {
       const d = s instanceof Error ? s.message : typeof s == "string" ? s : "true";
       h(e, "X-Error", d.replace(/[\r\n]+/g, ""));
-    } else s = I$1(s, t, f, true);
+    } else s = C(s, t, f, true);
     return o ? (h(e, "x-serialized", "true"), h(e, "content-type", "text/javascript"), H(o, s)) : s;
   }
 }
-function I$1(e, r, t, n) {
+function C(e, r, t, n) {
   const o = new URL(r.url), a = e instanceof Error;
   let i = 302, c;
   return e instanceof Response ? (c = new Headers(e.headers), e.headers.has("Location") && (c.set("Location", new URL(e.headers.get("Location"), o.origin + "").toString()), i = yt(e))) : c = new Headers({ Location: new URL(r.headers.get("referer")).toString() }), e && c.append("Set-Cookie", `flash=${encodeURIComponent(JSON.stringify({ url: o.pathname + o.search, result: a ? e.message : e, thrown: n, error: a, input: [...t.slice(0, -1), [...t[t.length - 1].entries()]] }))}; Secure; HttpOnly;`), new Response(null, { status: i, headers: c });
@@ -6811,7 +6880,7 @@ async function U(e, r) {
   r instanceof Response && (r.headers.has("X-Revalidate") && (t = r.headers.get("X-Revalidate").split(",")), r.headers.has("Location") && (n = new URL(r.headers.get("Location"), new URL(e.request.url).origin + "").toString()));
   const o = rt(e);
   return o.request = new Request(n, { headers: bt(e) }), await provideRequestEvent(o, async () => {
-    await gt(o), v || (v = (await import('../build/app-D_SIGV8g.mjs')).default), o.router.dataOnly = t || true, o.router.previousUrl = e.request.headers.get("referer");
+    await gt(o), v || (v = (await import('../build/app-Bb8ouiTo.mjs')).default), o.router.dataOnly = t || true, o.router.previousUrl = e.request.headers.get("referer");
     try {
       renderToString(() => {
         sharedConfig.context.event = o, v();
@@ -6826,7 +6895,7 @@ async function U(e, r) {
     return i && (r instanceof Response ? r.customBody && (a._$value = r.customBody()) : (a._$value = r, r = new Response(null, { status: 200 })), r.customBody = () => a, r.headers.set("X-Single-Flight", "true")), r;
   });
 }
-const Ut = eventHandler(Pt);
+const Ut = eventHandler(wt);
 
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
@@ -6904,7 +6973,7 @@ function Ee() {
 function Ae() {
   return Ee().use().event;
 }
-const j = [{ page: true, path: "/callback", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/callback.tsx" }, { page: true, path: "/continue", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/continue.tsx" }, { page: true, path: "/home", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/home.tsx" }, { page: true, path: "/", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/index.tsx" }, { page: true, path: "/login", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/login.tsx" }, { page: true, path: "/search", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/search.tsx" }, { page: true, path: "/tv", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/tv.tsx" }, { page: false, $POST: { src: "src/routes/api/query.ts?pick=POST", build: () => import('../build/query2.mjs'), import: () => import('../build/query2.mjs') }, path: "/api/query", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/api/query.ts" }, { page: true, path: "/category/:key", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/category/[key].tsx" }, { page: true, path: "/series/:id", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/series/[id].tsx" }, { page: true, path: "/title/:id", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/title/[id].tsx" }, { page: false, $GET: { src: "src/routes/video/[...path].ts?pick=GET", build: () => import('../build/_2...path_.mjs'), import: () => import('../build/_2...path_.mjs') }, $HEAD: { src: "src/routes/video/[...path].ts?pick=GET", build: () => import('../build/_2...path_.mjs'), import: () => import('../build/_2...path_.mjs') }, path: "/video/*path", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/video/[...path].ts" }, { page: true, path: "/watch/:id", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/watch/[id].tsx" }, { page: false, $POST: { src: "src/routes/api/tv/claim.ts?pick=POST", build: () => import('../build/claim2.mjs'), import: () => import('../build/claim2.mjs') }, path: "/api/tv/claim", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/api/tv/claim.ts" }];
+const j = [{ page: true, path: "/callback", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/callback.tsx" }, { page: true, path: "/continue", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/continue.tsx" }, { page: true, path: "/home", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/home.tsx" }, { page: true, path: "/", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/index.tsx" }, { page: true, path: "/login", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/login.tsx" }, { page: true, path: "/search", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/search.tsx" }, { page: true, path: "/tv", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/tv.tsx" }, { page: true, path: "/update", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/update.tsx" }, { page: false, $POST: { src: "src/routes/api/query.ts?pick=POST", build: () => import('../build/query2.mjs'), import: () => import('../build/query2.mjs') }, path: "/api/query", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/api/query.ts" }, { page: true, path: "/category/:key", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/category/[key].tsx" }, { page: true, path: "/series/:id", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/series/[id].tsx" }, { page: true, path: "/title/:id", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/title/[id].tsx" }, { page: false, $GET: { src: "src/routes/video/[...path].ts?pick=GET", build: () => import('../build/_2...path_.mjs'), import: () => import('../build/_2...path_.mjs') }, $HEAD: { src: "src/routes/video/[...path].ts?pick=GET", build: () => import('../build/_2...path_.mjs'), import: () => import('../build/_2...path_.mjs') }, path: "/video/*path", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/video/[...path].ts" }, { page: true, path: "/watch/:id", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/watch/[id].tsx" }, { page: false, $POST: { src: "src/routes/api/tv/claim.ts?pick=POST", build: () => import('../build/claim2.mjs'), import: () => import('../build/claim2.mjs') }, path: "/api/tv/claim", filePath: "/Users/hector/Documents/AIProjects/untitled folder/src/routes/api/tv/claim.ts" }];
 Te(j.filter((e) => e.page));
 function Te(e) {
   function t(r, s, o, n) {
@@ -7024,15 +7093,15 @@ function De(e, t, r = {}, s) {
     });
   } });
 }
-function ke(e, t, r) {
-  return De(e, Ue, t);
+function Ue(e, t, r) {
+  return De(e, ke, t);
 }
-async function Ue(e) {
+async function ke(e) {
   const t = globalThis.MANIFEST.client;
   return Object.assign(e, { manifest: await t.json(), assets: [...await t.inputs[t.handler].assets()], routes: [], complete: false, $islands: /* @__PURE__ */ new Set() });
 }
 var Ce = ['<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#14110f"><link rel="manifest" href="/manifest.webmanifest"><title>CineFamilia</title>', "</head>"], _e = ["<html", ' lang="es">', '<body><div id="app">', "</div><!--$-->", "<!--/--></body></html>"];
-const Be = ke(() => createComponent$1(ce, { document: ({ assets: e, children: t, scripts: r }) => ssr(_e, ssrHydrationKey(), createComponent$1(NoHydration, { get children() {
+const Be = Ue(() => createComponent$1(ce, { document: ({ assets: e, children: t, scripts: r }) => ssr(_e, ssrHydrationKey(), createComponent$1(NoHydration, { get children() {
   return ssr(Ce, escape(e));
 } }), escape(t), escape(r)) }));
 
@@ -7462,5 +7531,5 @@ trapUnhandledNodeErrors();
 setupGracefulShutdown(listener, nitroApp);
 const nodeServer = {};
 
-export { It as I, nodeServer as n };
+export { Ct as C, nodeServer as n };
 //# sourceMappingURL=nitro.mjs.map
