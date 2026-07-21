@@ -242,7 +242,7 @@
     ]
   },
   "src/routes/watch/[id].tsx?pick=default&pick=$css": {
-    "file": "assets/_id_-nyVIJ77p.js",
+    "file": "assets/_id_-DkMGmHmA.js",
     "name": "_id_",
     "src": "src/routes/watch/[id].tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -259,7 +259,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-DiKG4G_t.js",
+    "file": "assets/client-DZoYhpps.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
