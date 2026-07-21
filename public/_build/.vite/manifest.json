@@ -131,7 +131,7 @@
     ]
   },
   "src/routes/home.tsx?pick=default&pick=$css": {
-    "file": "assets/home-Bdu3c_9E.js",
+    "file": "assets/home-ChREQEqL.js",
     "name": "home",
     "src": "src/routes/home.tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -242,7 +242,7 @@
     ]
   },
   "src/routes/watch/[id].tsx?pick=default&pick=$css": {
-    "file": "assets/_id_-DkMGmHmA.js",
+    "file": "assets/_id_-CKMJXIsR.js",
     "name": "_id_",
     "src": "src/routes/watch/[id].tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -259,7 +259,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-DZoYhpps.js",
+    "file": "assets/client-De1l__UK.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
@@ -286,7 +286,7 @@
       "src/routes/watch/[id].tsx?pick=default&pick=$css"
     ],
     "css": [
-      "assets/client-BojkQ0yL.css"
+      "assets/client-DUR1NNHM.css"
     ]
   }
 }
