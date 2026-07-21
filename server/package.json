@@ -1,0 +1,13 @@
+{
+  "name": "video-web-prod",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "pathe": "1.1.2",
+    "seroval": "1.5.5",
+    "seroval-plugins": "1.5.5",
+    "solid-js": "1.9.14",
+    "vinxi": "0.4.3"
+  }
+}
