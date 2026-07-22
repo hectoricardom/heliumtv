@@ -1,0 +1,1 @@
+import{n as t,t as n}from"./web-C1rhI-gZ.js";import{handleCallback as o}from"./auth-B3N6l85B.js";import{u as r}from"./routing-C79xCL_B.js";import"./session-BvJZisRj.js";var c=n("<div class=container>Autenticando…");function m(){const a=r();return t(async()=>{try{await o(new URLSearchParams(window.location.search)),a("/")}catch{a("/login")}}),c()}export{m as default};
